@@ -4,6 +4,33 @@ import requests
 import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
 import urllib3
+import aiopyarr
+import json
+from aiopyarr.exceptions import ArrException
+from aiopyarr.lidarr_client import LidarrClient
+from aiopyarr.models.const import ProtocolType
+from aiopyarr.models.host_configuration import PyArrHostConfiguration
+from aiopyarr.models.lidarr import (
+    LidarrAlbum,
+    LidarrAlbumEditor,
+    LidarrAlbumHistory,
+    LidarrAlbumStudio,
+    LidarrArtist,
+    LidarrCommands,
+    LidarrEventType,
+    LidarrImportList,
+    LidarrImportListActionType,
+    LidarrImportListMonitorType,
+    LidarrImportListType,
+    LidarrManualImport,
+    LidarrMetadataProfile,
+    LidarrMetadataProvider,
+    LidarrRelease,
+    LidarrSortKeys,
+    LidarrTrackFile,
+    LidarrTrackFileEditor,
+    LidarrWantedCutoff,
+)
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning) #Plex API hates SSL or something idk it was annoying
 
@@ -12,6 +39,8 @@ SPOTIPY_CLIENT_SECRET = input('Spotify Secret: ')
 keepgoing = True #Used later for loop
 PLEX_SERVER_TOKEN = input('PLEX Server Token: ') 
 PLEX_SERVER_URL = input('Server URL, include http(s) and port, eg https://192.168.1.2:32400: ')
+LIDARR_IP = input('Lidarr IP, include HTTP and port number: ')
+LIDARR_TOKEN = input('Lidarr API Key: ')
 
 session = requests.Session() #Open session
 session.verify = False #Ignore SSL errors
@@ -51,7 +80,14 @@ def getplaylistname(playlist_id): #Get the name of the playlist so create_list c
     playlistname = sp.playlist(playlist_id, fields=["name"])
     playlist_name = playlistname["name"]
     return playlist_name
-    
+
+def lidarr_interface():
+    host_configuration = PyArrHostConfiguration(ipaddress=LIDARR_IP, api_token=LIDARR_TOKEN)
+    with LidarrClient(host_configuration=host_configuration) as client:
+        for list in client.LidarrImportList:
+            
+    return    
+
 def create_list(plextracks,playlist_name):
     plex_playlist = plex.createPlaylist(title=playlist_name, items=plextracks)
     #pms.createPlaylist(title="testing")
