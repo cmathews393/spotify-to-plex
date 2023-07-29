@@ -1,8 +1,8 @@
 import requests
 import json
-api_key = "cbd15faabd1a4f5e964c11f475eb51ae"
+api_key = ""
 
-base_url = "http://192.168.1.160:8686"
+base_url = ""
 
 
 
@@ -24,8 +24,8 @@ def make_lidarr_api_call(api_key, endpoint, params=None):
         return None
 
 
-if __name__ == "__main__":
-    api_key = "cbd15faabd1a4f5e964c11f475eb51ae"  # Replace with your actual Lidarr API key
+def lidarrtest():
+    api_key = ""  # Replace with your actual Lidarr API key
     endpoint = "/api/v1/importlist"
 
     # Example: Get all albums
@@ -39,4 +39,7 @@ if __name__ == "__main__":
                     if field.get('name') == 'playlistIds':
                         playlists.extend(field.get('value', []))
                         break
-                    print (playlists)
+    return playlists
+
+playlists = lidarrtest()
+print(playlists)
