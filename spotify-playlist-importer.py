@@ -45,16 +45,16 @@ def extract_playlist_id(playlist_url): #parse playlist ID from URL if applicable
 def get_spotify_playlist_tracks(playlist_id): #Get all tracks from Spotify, check Plex to see if they exist, and then add them to a list for Plex to use in create_list
     try:
         results = sp.playlist_tracks(playlist_id)
-        music = plex.library.section('Music')
+        music = plex.library.section('Music') #Set music as active library and assign it to music variable
         plex_tracks = []
         while results:
             for item in results['items']:
                 try:
                     track_name = item['track']['name']
                     artist_name = item['track']['artists'][0]['name']
-                    for track in music.search(title=artist_name):
+                    for track in music.search(title=artist_name): #search for the artist in plex
                         try:
-                            plex_tracks.append(track.track(title=track_name))
+                            plex_tracks.append(track.track(title=track_name)) #See if the artist has a track in plex that matches the song name
                         except:
                             continue
                 except Exception as x2:
@@ -118,17 +118,34 @@ def getlidarrlists():
         return playlists
 
 def create_list(plextracks,playlist_name):
+    plexplaylist_id = None
+    # Get a list of existing playlists from Plex
+    for playlist in plex.playlists():
+        if playlist_name in playlist.title:
+            plexplaylist_id = playlist.ratingKey
+            break
     
-    try:
-        plex_playlist = plex.createPlaylist(title=playlist_name, items=plextracks)
-        if plex_playlist:
-            print(f"Playlist '{playlist_name}' created successfully on Plex.")
-        else:
-            print("Failed to create the playlist.")
-            return(0)
-    except:
-        print("Creation failed, are there tracks in your playlist?")
-        pass
+    if plexplaylist_id is not None:
+        try:
+            print("Playlist found, matching and updating")
+            # Code to update the existing playlist with plextracks goes here
+            plex.fetchItem(plexplaylist_id).addItems(plextracks) 
+            print("Playlist '"+playlist_name+"' synchronized with Spotify")
+        except Exception as x3:
+            print("Playlist appears to match existing, but we ran into an issue while updating.")
+            print(x3)
+            pass
+    else:
+        try:
+            plex_playlist = plex.createPlaylist(title=playlist_name, items=plextracks)
+            if plex_playlist:
+                print(f"Playlist '{playlist_name}' created successfully on Plex.")
+            else:
+                print("Failed to create the playlist.")
+                return(0)
+        except:
+            print("Creation failed, are there tracks in your playlist?")
+            pass    
     #pms.createPlaylist(title="testing")
         #if plex_playlist:
         #    print(f"Playlist '{playlist_name}' created successfully on Plex.")
@@ -159,9 +176,9 @@ if lidarrimport == True:
             get_name = getplaylistname(PLAYLIST_ID)
             create_list(get_tracks,get_name)
         
-    except:
+    except Exception as errormsg:
         print("Failure, most likely one of your variables is wrong, or your Spotify playlist is not compatible")    
-
+        print(errormsg)
 
 
 while keepgoing == True:
