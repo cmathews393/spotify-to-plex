@@ -127,12 +127,11 @@ def create_list(plextracks,playlist_name):
     
     if plexplaylist_id is not None:
         try:
-            print("Playlist found, matching and updating")
-            # Code to update the existing playlist with plextracks goes here
+            print("Playlist found, matching and updating:"+playlist_name)
             plex.fetchItem(plexplaylist_id).addItems(plextracks) 
             print("Playlist '"+playlist_name+"' synchronized with Spotify")
         except Exception as x3:
-            print("Playlist appears to match existing, but we ran into an issue while updating.")
+            print("Playlist"+playlist_name+"appears to match existing, but we ran into an issue while updating.")
             print(x3)
             pass
     else:
@@ -169,12 +168,17 @@ if lidarrimport == True:
         playlists = getlidarrlists()
         print(playlists)
         for playlist in playlists:
-            print(playlist)
-            PLAYLIST_url = playlist
-            PLAYLIST_ID = extract_playlist_id(PLAYLIST_url)
-            get_tracks = get_spotify_playlist_tracks(PLAYLIST_ID)
-            get_name = getplaylistname(PLAYLIST_ID)
-            create_list(get_tracks,get_name)
+            try:
+                print(playlist)
+                PLAYLIST_url = playlist
+                PLAYLIST_ID = extract_playlist_id(PLAYLIST_url)
+                get_tracks = get_spotify_playlist_tracks(PLAYLIST_ID)
+                get_name = getplaylistname(PLAYLIST_ID)
+                create_list(get_tracks,get_name)
+            except Exception as error3:
+                print("Error:")
+                print(error3)
+
         
     except Exception as errormsg:
         print("Failure, most likely one of your variables is wrong, or your Spotify playlist is not compatible")    
