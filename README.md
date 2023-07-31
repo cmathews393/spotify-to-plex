@@ -7,6 +7,13 @@ Currently you need 4 things (5 if you count the playlist): A Spotify Client ID, 
 
 Using https://github.com/pkkid/python-plexapi, https://github.com/spotipy-dev/spotipy, and the requests library. 
 
+<h3>Upcoming Planned Features</h3>
+<br>
+1). Stored creds in a config file or env
+<br>
+2). Packaging an exe for easier Windows deployments
+<br>
+3). GUI (long-term)
 
 <h3>Known Issues:</h3>
 <br>
