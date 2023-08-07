@@ -101,10 +101,9 @@ def make_lidarr_api_call(api_key, endpoint, params=None):
         return None
     
 def getlidarrlists():
-    api_key = LIDARR_TOKEN  # Replace with your actual Lidarr API key
+    api_key = LIDARR_TOKEN  
     endpoint = "/api/v1/importlist"
 
-        # Example: Get all albums
 
     result = make_lidarr_api_call(api_key, endpoint)
     if result:
@@ -145,12 +144,6 @@ def create_list(plextracks,playlist_name):
         except:
             print("Creation failed, are there tracks in your playlist?")
             pass    
-    #pms.createPlaylist(title="testing")
-        #if plex_playlist:
-        #    print(f"Playlist '{playlist_name}' created successfully on Plex.")
-        #else:
-         #   print("Failed to create the playlist.")
-         #   return(0)
 
 mode = input("Do you want to import a playlist directly(1), or use a Lidarr Import List(2)? ")
 
@@ -181,7 +174,7 @@ if lidarrimport == True:
 
         
     except Exception as errormsg:
-        print("Failure, most likely one of your variables is wrong, or your Spotify playlist is not compatible")    
+        print("Failure, most likely one of your variables is wrong, or your Spotify playlist is not compatible, see documentation")    
         print(errormsg)
 
 
@@ -198,6 +191,6 @@ while keepgoing == True:
         else:
             keepgoing = True
     except:
-        print("Failure, most likely one of your variables is wrong, or your Spotify playlist is not compatible")    
+        print("Failure, most likely one of your variables is wrong, or your Spotify playlist is not compatible, see documentation")    
 else:
     exit()
