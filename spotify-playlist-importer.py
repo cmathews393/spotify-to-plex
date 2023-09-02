@@ -1,4 +1,5 @@
 import plexapi
+from plexapi.playlist import Playlist as pl
 from plexapi.server import PlexServer
 import requests 
 import spotipy
@@ -11,12 +12,13 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning) #Plex API ha
 SPOTIPY_CLIENT_ID = input('Spotify Client ID: ') 
 SPOTIPY_CLIENT_SECRET = input('Spotify Secret: ')
 keepgoing = False #Used later for loop
-lidarrimport = False
+lidarrimport = False #Used later for loop
 PLEX_SERVER_TOKEN = input('PLEX Server Token: ') 
 PLEX_SERVER_URL = input('Server URL, include http(s) and port, eg https://192.168.1.2:32400: ')
 LIDARR_IP = input('If desired, enter Lidarr IP, include HTTP and port number: ')
 LIDARR_TOKEN = input('If desired, enter Lidarr API Key: ')
-
+users = None #List of users to sync to (Defaults to log in user, additional users must be hardcoded) 
+#users MUST be in a list, i.e. ["user1"], even if its a single user. "user1", user1, etc are not valid
 '''
 #Switch to this block if you want to hardcode your keys and URLs
 SPOTIPY_CLIENT_ID = ""
@@ -27,6 +29,7 @@ PLEX_SERVER_TOKEN = ""
 PLEX_SERVER_URL = ""
 LIDARR_IP = ""
 LIDARR_TOKEN = ""
+users = None
 '''
 
 session = requests.Session() #Open session
@@ -36,7 +39,7 @@ sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials(client_id=SPOTIPY_CLI
 
 def extract_playlist_id(playlist_url): #parse playlist ID from URL if applicable
     if "playlist/" in playlist_url:
-        playlist_id = playlist_url.split("playlist/")[1]
+        playlist_id = playlist_url.split("playlist/")[1] #Remove excess text if inputting URL manually and not via Lidarr
         return playlist_id
     else:
         playlist_id = playlist_url
@@ -80,20 +83,21 @@ def getplaylistname(playlist_id): #Get the name of the playlist so create_list c
         playlist_name = playlistname["name"]
         return playlist_name
     except Exception as x3:
-        print("I'm tired of writing error messages, see above.")
+        print("I've never seen this occur without also getting a 404 on the previous block, please submit a bug report if this is inaccurate")
         print(x3)
 
 
 def make_lidarr_api_call(api_key, endpoint, params=None):
-
+    #Add API key to header
     headers = {
         "X-Api-Key": api_key,
     }
-
+    #Combine lidarr IP with API call
     url = f"{LIDARR_IP}{endpoint}"
     
+    #Store response from Lidarr
     response = requests.get(url, headers=headers, params=params)
-
+    #parse response if it exists, else send error message
     if response.status_code == 200:
         return response.json()
     else:
@@ -102,40 +106,43 @@ def make_lidarr_api_call(api_key, endpoint, params=None):
     
 def getlidarrlists():
     api_key = LIDARR_TOKEN  
+    #This shouldn't change, but if it does and it stops working for you, submit a bug report and I'll fix
     endpoint = "/api/v1/importlist"
 
 
     result = make_lidarr_api_call(api_key, endpoint)
-    if result:
-        playlists = []
-        for entry in result:
-            if entry.get('listType') == 'spotify' and entry.get('fields'):
-                for field in entry['fields']:
-                    if field.get('name') == 'playlistIds':
+    if result: #Checks to make sure we got a response
+        playlists = [] #initialize playlist... list
+        for entry in result: #grabs each playlist
+            if entry.get('listType') == 'spotify' and entry.get('fields'): #Check if import list is spotify sourced
+                for field in entry['fields']: #search all fields in entry
+                    if field.get('name') == 'playlistIds': #Grab playlist ID (i.e. spotify.com/playlist/PLAYLISTID) if the field is playlistid
                         playlists.extend(field.get('value', []))
                         break
         return playlists
 
-def create_list(plextracks,playlist_name):
-    plexplaylist_id = None
+def create_list(plexuser,plextracks,playlist_name):
+    plexplaylist_id = None #init playlistid variable
+    plexconn = plexuser #replaces old plexconn variable which was just default user before, now it will take each user as needed
     # Get a list of existing playlists from Plex
-    for playlist in plex.playlists():
+    for playlist in plexconn.playlists(): #Checks each playlist to see if the playlist exists via name 
         if playlist_name in playlist.title:
             plexplaylist_id = playlist.ratingKey
             break
     
-    if plexplaylist_id is not None:
+    if plexplaylist_id is not None: #If playlist exists
         try:
             print("Playlist found, matching and updating:"+playlist_name)
-            plex.fetchItem(plexplaylist_id).addItems(plextracks) 
+            plexconn.fetchItem(plexplaylist_id).addItems(plextracks) 
             print("Playlist '"+playlist_name+"' synchronized with Spotify")
+            return plexplaylist_id
         except Exception as x3:
             print("Playlist"+playlist_name+"appears to match existing, but we ran into an issue while updating.")
             print(x3)
             pass
-    else:
+    else: #If playlist is new/doesn't exist
         try:
-            plex_playlist = plex.createPlaylist(title=playlist_name, items=plextracks)
+            plex_playlist = plexconn.createPlaylist(title=playlist_name, items=plextracks)
             if plex_playlist:
                 print(f"Playlist '{playlist_name}' created successfully on Plex.")
             else:
@@ -143,31 +150,44 @@ def create_list(plextracks,playlist_name):
                 return(0)
         except:
             print("Creation failed, are there tracks in your playlist?")
-            pass    
+            #This shouldn't occur (as a fault of this script) if you have tracks. If you see this, please submit a bug report
+            pass
 
 mode = input("Do you want to import a playlist directly(1), or use a Lidarr Import List(2)? ")
+print("If you want to copy playlists to other users as well, enter their names in the users variable at the top of the script")
 
-if mode != "1" and mode != "2":
+if mode != "1" and mode != "2": #catches invalid input
     print("Sorry, "+mode+" is not a valid option!")
-elif mode == "1":
-    keepgoing = True
-elif mode == "2":
+elif mode == "1": #sets keepgoing to true until next manual import loop
+    keepgoing = True 
+elif mode == "2": #jumps to lidarrimport loop
     lidarrimport = True
 
 
 if lidarrimport == True:
     print("Importing from Lidarr instance at: "+LIDARR_IP)
     try:
-        playlists = getlidarrlists()
-        print(playlists)
+        playlists = getlidarrlists() #grab all spotify playlist in import sync
+        print(playlists) #print all playlist ID's to console, I might make this print playlist names at some point
         for playlist in playlists:
             try:
-                print(playlist)
+                print(playlist) #current playlist being synced
                 PLAYLIST_url = playlist
                 PLAYLIST_ID = extract_playlist_id(PLAYLIST_url)
                 get_tracks = get_spotify_playlist_tracks(PLAYLIST_ID)
                 get_name = getplaylistname(PLAYLIST_ID)
-                create_list(get_tracks,get_name)
+                plexplaylist_id = create_list(plex,get_tracks,get_name)
+                if users != None:
+                    for user in users:
+                        altuser = plex.switchUser(user)
+                        print("Creating for ",user)
+                        PLAYLIST_url = playlist
+                        PLAYLIST_ID = extract_playlist_id(PLAYLIST_url)
+                        get_tracks = get_spotify_playlist_tracks(PLAYLIST_ID)
+                        get_name = getplaylistname(PLAYLIST_ID)
+                        plexplaylist_id = create_list(altuser,get_tracks,get_name)
+                else:
+                    continue
             except Exception as error3:
                 print("Error:")
                 print(error3)
@@ -178,9 +198,9 @@ if lidarrimport == True:
         print(errormsg)
 
 
-while keepgoing == True:
+while keepgoing == True: #manual import loop
     try:
-        PLAYLIST_url = input('Playlist ID or url: ')
+        PLAYLIST_url = input('Playlist ID or url: ') #input for playlist ID
         PLAYLIST_ID = extract_playlist_id(PLAYLIST_url)
         get_tracks = get_spotify_playlist_tracks(PLAYLIST_ID)
         get_name = getplaylistname(PLAYLIST_ID)
