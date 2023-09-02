@@ -1,5 +1,7 @@
 # Spotify To Plex 
 
+New Features: Added ability to sync to multiple users in series. Tried a couple methods, some cleaner, some faster, this seems to be the most reliable way. If you have a better idea, submit a pull request!
+
 Spotify To Plex is a simple Python script to import Spotify Playlists by ID or URL into Plex, automatically finding tracks in the playlist that are in your Plex library. It can import tracks from your Spotify playlists that are synced down to Lidarr, which you can use to automatically sort and rename music files that you have the legal right to distribute and/or maintain copies of. 
 
 Currently you need 4 things (5 if you count the playlist): A Spotify Client ID, a Spotify Client Secret, a Plex Server Token, and your Plex Server URL. 
