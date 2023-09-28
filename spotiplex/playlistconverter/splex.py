@@ -112,7 +112,7 @@ def get_spotify_playlist_tracks(sp,plex,playlist_id): #Get all tracks from Spoti
             else:
                 break
 
-        return plex_tracks, results, display_tracks
+        return plex_tracks, display_tracks
     except Exception as x:
         print("Error reported, probably a 404. See documentation for more info.")
         print("Error is as follows: ")
@@ -195,5 +195,22 @@ def create_list(plexuser,plextracks,playlist_name):
             print("Creation failed, are there tracks in your playlist?")
             #This shouldn't occur (as a fault of this script) if you have tracks. If you see this, please submit a bug report
             pass
+
+
+def serializeplextracks(plex_tracks):
+    serialized_tracks = []
+    for track in plex_tracks:
+        try:
+            serialized_tracks.append({
+                "title": track.title,
+                "artist": track.artist.title if track.artist else None,
+                # Add any other properties you want to serialize
+            })
+        except:
+            serialized_tracks.append({
+                "title":"serialerror",
+                "artist":"serialerror",
+            })
+    return serialized_tracks
 
 
