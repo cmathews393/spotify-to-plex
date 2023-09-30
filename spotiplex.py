@@ -66,6 +66,7 @@ def get_spotify_playlist_tracks(sp, playlist_id):
     except Exception as x:
         print("Error fetching tracks from Spotify. See documentation for more info.")
         print("Error:", x)
+        
 
     return spotify_tracks
 
@@ -107,6 +108,7 @@ def get_playlist_name(sp, playlist_id):
         print(e)
 
 
+
 def make_lidarr_api_call(params=None):
     LIDARR_IP = config("LIDARR_IP")
     LIDARR_TOKEN = config("LIDARR_TOKEN")
@@ -126,7 +128,7 @@ def make_lidarr_api_call(params=None):
     return None
 
 
-def getlidarrlists(LIDARR_IP, LIDARR_TOKEN):
+def getlidarrlists():
     
     # This shouldn't change, but if it does and it stops working for you, submit a bug report and I'll fix
     if result := make_lidarr_api_call():
@@ -214,3 +216,16 @@ def lidarr_import(LIDARR_IP, playlist, plex, users):
             "Failure, most likely due to incorrect variables or incompatible Spotify playlist. Refer to documentation."
         )
         print(errormsg)
+
+
+#future use
+# def process_playlist(playlist, plex, sp):
+#     try:
+#         playlist_id = extract_playlist_id(playlist)
+#         spotify_tracks = get_spotify_playlist_tracks(sp, playlist_id)
+#         plex_tracks, _ = check_tracks_in_plex(plex, spotify_tracks)
+#         playlist_name = get_playlist_name(sp, playlist_id)
+#         create_list(plex, plex_tracks, playlist_name)
+#         print(f"Processed playlist '{playlist_name}'.")
+#     except Exception as e:
+#         print(f"Error processing playlist '{playlist}':", e)
