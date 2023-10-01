@@ -10,12 +10,11 @@ getlidarrlists,
 process_playlist
 )
 
-import time
 
 import concurrent.futures
 
 from concurrent.futures import ThreadPoolExecutor
-
+from decouple import config
 
 # def main():
     
@@ -45,14 +44,13 @@ from concurrent.futures import ThreadPoolExecutor
 #         print(playlistfailed)
 
 def main():
-    start = time.time()
     plex = connect_plex()
     sp = connect_spotify()
 
     lidarr_playlists = getlidarrlists()
 
     # Use ThreadPoolExecutor to process multiple playlists simultaneously
-    with ThreadPoolExecutor(max_workers=5) as executor:
+    with ThreadPoolExecutor(max_workers=config("WORKERS")) as executor:
         # Use 'executor.submit' to start the function in a new thread
         futures = [executor.submit(process_playlist, playlist, plex, sp) for playlist in lidarr_playlists]
         
@@ -64,11 +62,7 @@ def main():
                 future.result()
             except Exception as e:
                 print(f"Thread resulted in an error: {e}")
-    end = time.time()
-    # print the difference between start
-    # and end time in milli. secs
-    print("The time of execution of above program is :",
-        (end-start) * 10**3, "ms")
+
 
 
 
