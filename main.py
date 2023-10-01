@@ -48,9 +48,9 @@ def main():
     sp = connect_spotify()
 
     lidarr_playlists = getlidarrlists()
-
+    workercount = int(config("WORKERS"))
     # Use ThreadPoolExecutor to process multiple playlists simultaneously
-    with ThreadPoolExecutor(max_workers=config("WORKERS")) as executor:
+    with ThreadPoolExecutor(max_workers=workercount) as executor:
         # Use 'executor.submit' to start the function in a new thread
         futures = [executor.submit(process_playlist, playlist, plex, sp) for playlist in lidarr_playlists]
         
