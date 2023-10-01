@@ -218,14 +218,14 @@ def lidarr_import(LIDARR_IP, playlist, plex, users):
         print(errormsg)
 
 
-#future use
-# def process_playlist(playlist, plex, sp):
-#     try:
-#         playlist_id = extract_playlist_id(playlist)
-#         spotify_tracks = get_spotify_playlist_tracks(sp, playlist_id)
-#         plex_tracks, _ = check_tracks_in_plex(plex, spotify_tracks)
-#         playlist_name = get_playlist_name(sp, playlist_id)
-#         create_list(plex, plex_tracks, playlist_name)
-#         print(f"Processed playlist '{playlist_name}'.")
-#     except Exception as e:
-#         print(f"Error processing playlist '{playlist}':", e)
+
+def process_playlist(playlist, plex, sp):
+    try:
+        playlist_id = extract_playlist_id(playlist)
+        spotify_tracks = get_spotify_playlist_tracks(sp, playlist_id)
+        plex_tracks, _ = check_tracks_in_plex(plex, spotify_tracks)
+        playlist_name = get_playlist_name(sp, playlist_id)
+        create_list(plex, plex_tracks, playlist_name)
+        print(f"Processed playlist '{playlist_name}'.")
+    except Exception as e:
+        print(f"Error processing playlist '{playlist}':", e)
