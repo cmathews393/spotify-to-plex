@@ -3,3 +3,4 @@
 .vscode/launch.json
 .vscode/settings.json
 .env
+*.log
