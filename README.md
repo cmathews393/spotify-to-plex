@@ -45,6 +45,9 @@ Spotiplex is a simple Python app to import Spotify Playlists by ID or URL into P
 Using https://github.com/pkkid/python-plexapi, https://github.com/spotipy-dev/spotipy, and the requests library. 
 
 # <h3>Upcoming Planned Features</h3>
+
+See the <a href=https://trello.com/b/PGhCi2Ws/spotiplex-roadmap>Trello Board</a> for more details
+
 <br>
 1). Packaging an exe for easier Windows deployments
 <br>
