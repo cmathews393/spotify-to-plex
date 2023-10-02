@@ -2,15 +2,27 @@
 
 
 - [Spotify To Plex (Spotiplex)](#spotify-to-plex-spotiplex)
+- [How To](#how-to)
 - [Latest Features:](#latest-features)
 - [Dependencies](#dependencies)
 - [Upcoming Planned Features](#upcoming-planned-features)
 - [Known Issues:](#known-issues)
 - [Disclaimer:](#disclaimer)
 
+
+# How To
+
+1). Clone the repo
+2). Rename default.env to .env
+3). Configure settings for your environment
+    a). Get Plex API key
+    b). Get Spotify ID and API key
+    c). Get Lidarr API key
+4). Run "main.py" from the "current-version" folder
+
 # <h4>Latest Features:</h4>
 
-Multithreading added in the latest update! Previously an import from Lidarr with approx 35-45 playlists would take an hour or more. Multithreading cuts this down to 10 minutes or less in most cases. The per user sync is not implemented in the new build, but should be implemented in the next update or so. Working on an all-in-one binary as well. Creds and variables are available in an .env. The default.env provides 
+Multithreading added in the latest update! Previously an import from Lidarr with approx 35-45 playlists would take an hour or more. Multithreading cuts this down to 10 minutes or less in most cases. Working on an all-in-one binary as well. Creds and variables are available in an .env. The default.env provides 
 
 Primarily, this app has been redesigned around using Lidarr as the source for playlists to sync.
 
@@ -21,11 +33,9 @@ Using https://github.com/pkkid/python-plexapi, https://github.com/spotipy-dev/sp
 
 # <h3>Upcoming Planned Features</h3>
 <br>
-1). Re-implement multi-user sync
+1). Packaging an exe for easier Windows deployments
 <br>
-2). Packaging an exe for easier Windows deployments
-<br>
-3). Webapp deployment option
+2). Webapp deployment option
 <br>
 
 
