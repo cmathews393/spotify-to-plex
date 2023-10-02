@@ -10,8 +10,13 @@
 - [Disclaimer:](#disclaimer)
 
 
-# How To
+# <h3>How To</h3>
 
+<h2>Prerequisites</h2>
+1). Ensure you have Python 3 installed. Spotiplex is developed on 3.8.10, but may work on different versions, though this is unsupported.
+2). Install plexapi, spotipy, and python-decouple ("pip install python-decouple plexapi spotipy")
+
+<h2> Setup </h2>
 1). Clone the repo
 2). Rename default.env to .env
 3). Configure settings for your environment
