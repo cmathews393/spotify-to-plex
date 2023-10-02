@@ -1,0 +1,715 @@
+2023-10-01 20:05:46.806 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:05:46.949 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:05:47.018 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:05:47.101 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:05:47.165 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:05:47.265 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:05:47.324 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:05:47.337 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:05:47.357 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:05:47.512 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:05:47.585 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:05:47.778 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:05:47.812 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:05:47.828 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:05:48.018 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:05:48.019 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:05:48.217 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:05:48.294 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:05:48.318 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:05:48.365 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:05:48.652 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:05:49.031 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:05:49.083 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:05:49.113 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:05:49.211 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:05:49.217 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:05:49.342 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:05:49.623 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:05:49.710 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:05:49.865 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:05:49.964 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:05:50.011 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:05:50.150 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:05:50.159 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:05:50.273 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:05:50.337 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:05:50.545 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:05:50.722 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:05:50.850 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:05:50.940 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:05:51.037 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:05:51.089 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:05:51.185 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:05:51.230 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:05:51.243 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:05:51.306 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:05:51.434 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:05:51.521 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:05:51.558 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:05:51.770 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:05:51.941 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:05:51.975 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:05:51.977 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:05:52.018 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:05:52.161 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:05:52.284 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:05:52.411 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:05:52.512 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:05:52.536 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:05:52.634 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:05:52.660 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:05:52.697 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:05:52.802 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:05:52.805 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:05:52.946 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:05:52.982 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:05:53.009 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:05:53.056 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:05:53.063 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:05:53.215 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:05:53.216 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:05:53.439 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:05:53.764 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:05:53.864 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:05:53.888 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:05:53.913 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:05:53.958 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:05:54.041 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:05:54.081 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:05:54.100 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:05:54.117 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:05:54.193 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:05:54.269 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:05:54.320 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:05:54.366 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:05:54.440 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:05:54.441 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:05:54.507 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:05:54.549 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:05:54.562 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:05:54.644 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:05:54.665 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:05:54.714 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:05:54.820 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:05:54.985 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:05:55.082 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:05:55.138 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:05:55.183 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:05:55.197 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:05:55.325 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:05:55.333 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:05:55.357 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:05:55.542 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:05:55.587 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:05:55.672 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:05:55.729 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:05:55.893 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:05:55.949 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:05:56.075 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:05:56.088 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:05:56.311 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:05:56.337 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:05:56.485 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:05:56.611 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:05:56.670 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:05:56.695 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:05:56.869 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:05:57.042 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:05:57.152 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:05:57.181 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:05:57.275 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:05:57.288 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:05:57.388 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:05:57.399 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:05:57.507 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:05:57.634 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:05:57.671 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:05:57.721 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:05:57.775 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:05:57.779 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:05:57.926 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:05:58.373 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:05:58.399 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:05:58.456 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:05:58.577 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:05:58.592 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:05:58.603 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:05:58.670 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:05:58.699 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:05:58.744 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:05:58.813 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:05:58.822 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:05:58.836 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:05:58.979 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:05:59.086 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:05:59.218 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:05:59.221 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:05:59.697 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:05:59.741 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:05:59.951 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:00.046 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:00.129 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:00.188 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:00.273 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:00.651 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:06:00.703 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:00.733 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:00.766 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:00.790 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:06:00.828 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:00.874 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:01.028 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:06:01.045 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:01.198 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:06:01.235 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:06:01.262 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:01.316 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:01.338 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:06:01.390 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:01.431 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:01.542 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:01.552 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:01.639 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:01.722 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:01.733 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:06:01.749 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:01.791 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:01.833 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:01.857 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:06:01.879 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:01.917 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:01.967 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:02.054 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:02.055 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:02.148 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:02.200 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:06:02.245 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:02.317 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:02.422 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:02.478 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:02.535 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:02.564 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:02.586 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:02.589 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:06:02.593 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:02.696 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:02.737 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:02.799 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:02.857 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:02.858 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:02.905 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:02.922 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:02.988 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:06:03.046 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:06:03.074 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:06:03.224 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:06:03.369 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:06:03.558 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:06:03.579 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:03.589 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:06:03.624 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:03.771 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:06:04.141 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:06:04.347 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:04.408 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:04.436 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:04.538 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:06:04.632 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:04.835 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:04.869 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:06:04.999 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:06:05.118 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:05.121 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:05.361 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:05.502 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:06:05.560 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:06:05.814 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:05.934 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:06.008 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:06.119 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:06:06.227 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:06.413 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:06:06.475 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:06.595 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:06:06.837 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:06.955 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:06:07.006 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:06:07.083 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:06:07.233 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:06:07.267 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:07.540 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:07.807 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:07.853 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:07.986 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:06:08.135 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:08.150 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:06:08.379 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:08.406 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:08.427 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:08.705 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:06:09.106 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:09.112 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:09.174 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:09.270 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:06:09.292 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:06:09.450 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:06:09.459 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:09.590 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:06:09.616 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:06:09.718 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:06:09.824 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:09.887 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:09.994 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:09.995 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:06:10.178 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:06:10.337 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:06:10.375 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:10.501 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:06:10.682 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:10.936 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:06:11.008 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:11.025 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:11.109 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:11.161 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:06:11.209 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:11.305 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:11.309 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:06:11.414 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:11.449 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:06:11.461 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:06:11.727 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:11.749 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:11.756 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:06:12.054 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:12.306 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:12.395 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:12.489 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:12.551 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:12.559 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:12.634 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:12.677 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:12.728 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:12.751 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:12.786 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:12.820 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:13.012 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:13.183 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:13.240 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:13.263 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:13.307 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:06:13.337 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:13.494 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:06:13.543 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:13.570 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:13.574 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:13.805 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:13.829 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:13.975 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:06:14.421 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:14.528 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:14.537 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:06:14.582 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:14.590 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:06:14.732 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:06:14.768 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:14.772 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:06:14.854 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:14.902 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:14.939 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:06:15.043 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:06:15.156 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:15.217 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:06:15.302 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:15.370 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:06:15.443 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:15.466 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:15.502 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:06:15.745 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:15.816 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:15.938 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:15.960 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:16.200 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:16.221 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:16.467 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:16.489 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:16.604 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:16.841 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:16.942 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:06:17.015 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:17.054 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:06:17.243 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:17.265 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:17.299 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:17.448 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:06:17.475 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:17.599 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:17.600 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:06:17.609 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:06:17.647 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:06:17.836 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:17.921 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:17.962 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:17.974 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:06:18.247 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:18.261 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:18.326 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:06:18.397 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:06:18.533 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:06:18.612 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:18.721 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:06:18.732 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:06:18.928 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:06:19.014 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:19.093 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:19.151 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:19.157 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:06:19.177 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:06:19.189 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:19.404 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:19.519 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:06:19.605 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:19.646 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:06:19.723 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:19.826 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:20.067 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:20.097 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:20.208 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:06:20.227 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:06:20.344 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:06:20.374 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:20.427 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:20.477 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:06:20.509 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:20.595 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:06:20.597 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:20.865 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:20.986 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:06:21.009 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:21.149 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:06:21.174 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:06:21.321 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:06:21.411 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:21.570 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:21.615 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:21.617 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:06:21.820 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:21.844 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:21.856 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:21.997 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:06:22.206 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:06:22.522 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:22.793 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:06:22.922 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:06:23.057 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex: {artist_name}
+2023-10-01 20:06:23.259 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song {track_name} for artist {artist_name} was not found in Plex
+2023-10-01 20:08:15.817 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:15.933 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:15.959 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:16.045 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:16.100 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:16.105 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:16.150 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:16.272 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:16.321 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:16.425 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:16.493 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:16.603 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:16.639 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:16.714 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:16.817 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:16.938 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:16.984 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:17.050 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:17.096 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:17.119 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:17.292 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:17.387 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:17.419 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:17.587 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:17.713 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:17.780 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:17.803 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:18.360 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:18.577 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:18.696 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:18.707 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:18.718 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:18.908 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:18.921 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:18.925 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:19.099 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:19.106 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:19.325 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:19.437 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:19.618 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:19.745 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:19.859 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:19.974 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:19.999 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:20.013 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:20.146 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:20.147 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:20.252 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:20.314 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:20.493 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:20.659 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:20.674 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:20.745 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:20.793 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:21.216 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:21.224 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:21.231 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:21.477 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:21.528 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:21.554 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:21.572 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:21.842 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:21.862 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:21.898 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:22.011 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:22.093 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:22.112 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:22.116 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:22.412 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:22.609 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:22.612 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:22.912 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:23.029 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:23.073 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:23.104 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:23.271 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:23.282 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:23.341 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:23.399 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:23.433 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:23.587 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:23.614 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:23.656 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:23.703 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:23.757 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:23.876 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:23.907 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:23.908 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:23.974 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:23.990 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:24.056 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:24.111 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:24.126 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:24.233 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:24.239 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:24.262 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:24.409 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:24.487 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:24.710 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:24.840 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:24.954 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:24.966 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:25.120 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:25.154 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:25.179 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:25.299 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:25.543 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:25.556 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:25.612 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:25.874 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:25.911 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:25.964 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:26.021 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:26.030 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:26.274 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:26.383 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:26.418 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:26.611 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:26.652 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:26.742 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:26.936 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:27.018 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:27.027 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:27.048 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:27.149 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:27.165 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:27.180 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:27.316 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:27.336 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:27.359 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:27.402 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:27.441 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:27.488 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:27.532 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:27.563 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:27.597 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:27.838 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:28.053 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:28.135 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:28.323 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:28.335 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:28.450 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:28.533 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:28.597 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:28.783 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:28.788 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:28.930 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:29.213 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:29.312 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:29.366 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:29.428 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:29.490 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:29.502 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:29.636 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:29.713 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:29.793 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:29.848 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:29.878 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:29.891 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:29.941 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:29.944 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:30.031 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:30.194 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:30.313 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:30.374 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:30.391 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:30.421 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:30.505 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:30.559 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:30.575 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:30.589 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:30.616 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:30.671 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:30.701 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:30.798 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:30.803 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:30.814 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:30.841 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:30.956 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:30.999 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:31.020 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:31.097 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:31.116 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:31.235 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:31.291 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:31.297 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:31.359 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:31.454 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:31.549 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:31.590 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:31.573 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:31.612 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:31.683 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:31.729 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:31.745 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:31.761 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:32.145 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:32.208 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:32.383 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:32.398 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:32.452 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:32.505 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:32.571 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:32.873 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:32.929 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:32.939 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:33.027 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:33.058 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:33.080 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:33.210 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:33.250 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:33.357 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:33.511 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:33.687 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:33.719 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:33.884 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:34.188 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:34.312 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:34.402 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:34.405 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:34.421 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:34.636 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:34.716 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:34.907 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:34.977 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:35.107 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:35.357 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:35.393 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:35.595 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:35.623 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:36.160 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:36.230 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:36.338 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:36.354 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:36.472 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:36.483 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:36.550 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:36.628 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:36.974 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:37.346 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:37.380 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:37.621 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:37.721 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:37.751 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:37.898 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:37.974 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:38.116 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:38.143 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:38.250 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:38.300 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:38.333 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:38.434 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:38.484 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:38.529 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:38.622 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:38.772 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:38.818 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:38.969 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:39.034 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:39.158 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:39.312 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:39.591 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:39.636 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:39.709 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:39.793 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:39.809 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:40.108 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:40.246 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:40.329 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:40.352 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:40.397 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:40.542 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:40.564 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:40.579 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:40.741 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:40.799 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:40.836 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:40.870 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:40.893 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:41.033 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:41.117 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:41.127 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:41.466 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:41.584 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:41.619 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:41.652 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:41.706 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:41.747 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:41.820 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:41.848 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:41.870 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:41.960 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:42.026 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:42.107 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:42.123 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:42.345 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:42.393 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:42.403 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:42.430 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:42.448 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:42.506 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:42.631 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:42.691 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:42.844 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:42.867 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:42.894 | ERROR    | spotiplex:check_tracks_in_plex:98 - Artist not found in Plex:
+2023-10-01 20:08:42.973 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:43.140 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:43.178 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
+2023-10-01 20:08:43.192 | ERROR    | spotiplex:check_tracks_in_plex:95 - Song 
