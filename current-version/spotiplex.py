@@ -105,7 +105,7 @@ def get_playlist_name(sp, playlist_id):
     """Retrieve the name of the playlist for further use in create_list."""
     try:
         playlist_data = sp.playlist(playlist_id, fields=["name"])
-        print(playlist_data["name"]," is being processed")
+        print(playlist_data["name"], " is being processed")
         return playlist_data["name"]
     except Exception as e:
         print(
@@ -165,7 +165,7 @@ def create_list(plexuser, plextracks, playlist_name):
         print(f"Playlist found, matching and updating: {playlist_name}")
         try:
             plexconn.fetchItem(plexplaylist_id).addItems(plextracks)
-            #print(f"Playlist '{playlist_name}' synchronized with Spotify")
+            # print(f"Playlist '{playlist_name}' synchronized with Spotify")
             return plexplaylist_id
         except Exception as e:
             print(
