@@ -4,3 +4,5 @@
 .vscode/settings.json
 .env
 *.log
+*.pyc
+*pycache*
