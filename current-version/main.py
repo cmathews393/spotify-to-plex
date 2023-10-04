@@ -2,6 +2,11 @@ from spotiplex import (
     connect_plex,
     connect_spotify,
     getlidarrlists,
+    # extract_playlist_id,
+    # get_playlist_name,
+    # get_spotify_playlist_tracks,
+    # create_list,
+    # check_tracks_in_plex,
     process_playlist,
 )
 import concurrent.futures
@@ -9,30 +14,30 @@ from concurrent.futures import ThreadPoolExecutor
 from decouple import config
 
 
+
+
 def process_for_user(user, plex, sp, lidarr_playlists, workercount):
     if user:
         # Switch to the alternate user context
         plex = plex.switchUser(user)
         print(f"Processing playlists for user: {user}")
-    if type(lidarr_playlists) is list:
-        # Use ThreadPoolExecutor to process multiple playlists simultaneously
-        with ThreadPoolExecutor(max_workers=workercount) as executor:
-            # Use 'executor.submit' to start the function in a new thread
-            futures = [
-                executor.submit(process_playlist, playlist, plex, sp)
-                for playlist in lidarr_playlists
-            ]
 
-            # Wait for all tasks to complete. If you want to handle exceptions or
-            # gather results returned by the tasks, you can do that here.
-            for future in concurrent.futures.as_completed(futures):
-                try:
-                    # This will raise an exception if the function erred
-                    future.result()
-                except Exception as e:
-                    print(f"Thread resulted in an error: {e}")
-    if type(lidarr_playlists) is str:
-        process_playlist(lidarr_playlists, plex, sp)
+    # Use ThreadPoolExecutor to process multiple playlists simultaneously
+    with ThreadPoolExecutor(max_workers=workercount) as executor:
+        # Use 'executor.submit' to start the function in a new thread
+        futures = [
+            executor.submit(process_playlist, playlist, plex, sp)
+            for playlist in lidarr_playlists
+        ]
+
+        # Wait for all tasks to complete. If you want to handle exceptions or
+        # gather results returned by the tasks, you can do that here.
+        for future in concurrent.futures.as_completed(futures):
+            try:
+                # This will raise an exception if the function erred
+                future.result()
+            except Exception as e:
+                print(f"Thread resulted in an error: {e}")
 
 
 def connection_handler():
@@ -59,8 +64,7 @@ def connection_handler():
     try:
         lidarr_playlists = getlidarrlists()
         print("Playlists grabbed")
-        lidarrworking = True
-        return (plex, sp, lidarr_playlists, lidarrworking)
+        return (plex, sp, lidarr_playlists)
     except Exception as lidarrfailed:
         print("Lidarr playlist import failed")
         print(lidarrfailed)
@@ -73,12 +77,13 @@ def connection_handler():
             input()
             exit()
         else:
-            lidarrworking = False
-            return (plex, sp, playlistid, lidarrworking)
+            lidarr_playlists = []
+            lidarr_playlists.append(playlistid)
+            return (plex, sp, lidarr_playlists)
 
 
 def main():
-    plex, sp, lidarr_playlists, lidarrworking = connection_handler()
+    plex, sp, lidarr_playlists = connection_handler()
 
     workercount = int(config("WORKERS"))
 
