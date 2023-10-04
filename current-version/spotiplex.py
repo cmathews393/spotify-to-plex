@@ -36,16 +36,14 @@ def extract_playlist_id(playlist_url):  # parse playlist ID from URL if applicab
     )
 
 
-# def get_spotify_tracks(sp, playlist_id):
-#     try:
-#         results = sp.playlist_tracks(playlist_id)
-#     except Exception as exception1:
-#         name = get_playlist_name(sp, playlist_id)
-#         print(f"Error getting tracks for playlist {name}, playlistID: {playlist_id}")
-#         print(exception1)
-#     return results
-
-#Pretty sure this function is superfluous now ^^^
+def get_spotify_tracks(sp, playlist_id):
+    try:
+        results = sp.playlist_tracks(playlist_id)
+    except Exception as exception1:
+        name = get_playlist_name(sp, playlist_id)
+        print(f"Error getting tracks for playlist {name}, playlistID: {playlist_id}")
+        print(exception1)
+    return results
 
 
 def get_spotify_playlist_tracks(sp, playlist_id):
