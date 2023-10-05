@@ -23,6 +23,8 @@ def process_for_user(user, plex, sp, lidarr_playlists, workercount):
         print(f"Processing playlists for user: {user}")
 
     # Use ThreadPoolExecutor to process multiple playlists simultaneously
+
+    # Use ThreadPoolExecutor to process multiple playlists simultaneously
     with ThreadPoolExecutor(max_workers=workercount) as executor:
         # Use 'executor.submit' to start the function in a new thread
         futures = [
@@ -64,27 +66,33 @@ def connection_handler():
     try:
         lidarr_playlists = getlidarrlists()
         print("Playlists grabbed")
-        return (plex, sp, lidarr_playlists)
+
     except Exception as lidarrfailed:
         print("Lidarr playlist import failed")
         print(lidarrfailed)
-        print(
-            "Lidarr import failed. Press ENTER to use a manual playlist ID (not implemented yet)"
-        )
-        playlistid = input("Enter playlistID: ")
-        if len(playlistid) <= 1:
-            print("No playlist provided, exiting...")
-            input()
-            exit()
+        print("Trying to read .env file for manual list...")
+        if config("PLAYLISTS", default=None):
+            lidarr_playlists = config("PLAYLISTS").split(",")
         else:
-            lidarr_playlists = []
-            lidarr_playlists.append(playlistid)
-            return (plex, sp, lidarr_playlists)
+            print(
+                "Lidarr import failed, no playlists found in .env. Press ENTER to use a manual playlist ID"
+            )
+            playlistid = input("Enter playlistID: ")
+            if len(playlistid) <= 1:
+                print("No playlist provided, exiting...")
+                input()
+                exit()
+            else:
+                lidarr_playlists = []
+                lidarr_playlists.append(playlistid)
+
+    return (plex, sp, lidarr_playlists)
 
 
 def main():
+    
     plex, sp, lidarr_playlists = connection_handler()
-
+    print(lidarr_playlists)
     workercount = int(config("WORKERS"))
 
     # Convert comma-separated users string to list of users
