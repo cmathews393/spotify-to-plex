@@ -16,7 +16,7 @@ from decouple import config
 
 
 
-def process_for_user(user, plex, sp, lidarr_playlists, workercount):
+def process_for_user(user, plex, sp, lidarr_playlists, workercount, replace):
     if user:
         # Switch to the alternate user context
         plex = plex.switchUser(user)
@@ -28,7 +28,7 @@ def process_for_user(user, plex, sp, lidarr_playlists, workercount):
     with ThreadPoolExecutor(max_workers=workercount) as executor:
         # Use 'executor.submit' to start the function in a new thread
         futures = [
-            executor.submit(process_playlist, playlist, plex, sp)
+            executor.submit(process_playlist, playlist, plex, sp, replace)
             for playlist in lidarr_playlists
         ]
 
@@ -97,14 +97,14 @@ def main():
 
     # Convert comma-separated users string to list of users
     userlist = config("USERS").split(",") if config("USERS") else []
-
+    replace = bool(config("REPLACE"))
     # Process for the main user first
 
-    process_for_user(None, plex, sp, lidarr_playlists, workercount)
+    process_for_user(None, plex, sp, lidarr_playlists, workercount, replace)
 
     # Then process for each user in the user list
     for user in userlist:
-        process_for_user(user.strip(), plex, sp, lidarr_playlists, workercount)
+        process_for_user(user.strip(), plex, sp, lidarr_playlists, workercount, replace)
 
 
 if __name__ == "__main__":

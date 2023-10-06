@@ -5,7 +5,7 @@ import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
 import urllib3
 from decouple import config
-
+from datetime import date
 
 def connect_plex():
     urllib3.disable_warnings(
@@ -106,8 +106,15 @@ def get_playlist_name(sp, playlist_id):
     """Retrieve the name of the playlist for further use in create_list."""
     try:
         playlist_data = sp.playlist(playlist_id, fields=["name"])
-        print(playlist_data["name"], " is being processed")
-        return playlist_data["name"]
+        playlistname = playlist_data["name"]
+        if "Discover Weekly" in playlistname or "Daily Mix" in playlistname:
+            curdate = date.today()
+            print("Discover")
+            playlistname = f"{playlistname} {curdate}"
+            print(playlistname, " is being processed")
+            return playlistname
+        print(playlistname, " is being processed")
+        return playlistname
     except Exception as e:
         print(
             "Error retrieving playlist name. If this is unexpected, please submit a bug report."
@@ -151,7 +158,7 @@ def getlidarrlists():
         return playlists
 
 
-def create_list(plexuser, plextracks, playlist_name):
+def create_list(plexuser, plextracks, playlist_name, playlist_id, replace):
     plexconn = plexuser
     plexplaylist_id = next(
         (
@@ -165,12 +172,17 @@ def create_list(plexuser, plextracks, playlist_name):
     if plexplaylist_id:  # If playlist exists
         print(f"Playlist found, matching and updating: {playlist_name}")
         try:
-            plexconn.fetchItem(plexplaylist_id).addItems(plextracks)
+            if replace is True:
+                existingtracks = plexconn.fetchItem(plexplaylist_id).items()
+                plextracks.extend(existingtracks)
+                plex_playlist = plexconn.createPlaylist(title=playlist_name, items=plextracks)
+            else:
+                plexconn.fetchItem(plexplaylist_id).addItems(plextracks)
             # print(f"Playlist '{playlist_name}' synchronized with Spotify")
             return plexplaylist_id
         except Exception as e:
             print(
-                f"Playlist {playlist_name} appears to match existing, but an issue occurred while updating."
+                f"Playlist {playlist_id} appears to match existing, but an issue occurred while updating."
             )
             print(e)
 
@@ -223,14 +235,14 @@ def lidarr_import(LIDARR_IP, playlist, plex, users):
         print(errormsg)
 
 
-def process_playlist(playlist, plex, sp):
+def process_playlist(playlist, plex, sp, replace):
     try:
         playlist_id = extract_playlist_id(playlist)
         print(playlist_id)
         playlist_name = get_playlist_name(sp, playlist_id)
         spotify_tracks = get_spotify_playlist_tracks(sp, playlist_id)
         plex_tracks, _ = check_tracks_in_plex(plex, spotify_tracks)
-        create_list(plex, plex_tracks, playlist_name)
+        create_list(plex, plex_tracks, playlist_name, playlist_id, replace)
         print(f"Processed playlist '{playlist_name}'.")
     except Exception as e:
         print(f"Error processing playlist '{playlist}':", e)
