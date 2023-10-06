@@ -13,32 +13,7 @@ import concurrent.futures
 from concurrent.futures import ThreadPoolExecutor
 from decouple import config
 
-# def main():
 
-#     # Assuming you have this in your environment variables or settings
-#     plex = connect_plex()
-#     sp = connect_spotify()
-
-#     try:
-#         lidarr_playlists = getlidarrlists()
-
-#         for playlist in lidarr_playlists:
-#             try:
-#                 playlist_id = extract_playlist_id(playlist)
-#                 spotify_tracks = get_spotify_playlist_tracks(sp, playlist_id)
-#                 plex_tracks, _ = check_tracks_in_plex(plex, spotify_tracks)
-#                 playlist_name = get_playlist_name(sp, playlist_id)
-
-#                 create_list(plex, plex_tracks, playlist_name)
-
-#                 print(f"Processed playlist '{playlist_name}'.")
-
-#             except Exception as e:
-#                 print(f"An error occurred processing playlist {playlist}:", e)
-#                 continue  # continue will ensure that the loop proceeds to the next playlist even if an error occurs
-#     except Exception as playlistfailed:
-#         print("Grabbing all playlists failed")
-#         print(playlistfailed)
 
 
 def process_for_user(user, plex, sp, lidarr_playlists, workercount):
@@ -46,6 +21,8 @@ def process_for_user(user, plex, sp, lidarr_playlists, workercount):
         # Switch to the alternate user context
         plex = plex.switchUser(user)
         print(f"Processing playlists for user: {user}")
+
+    # Use ThreadPoolExecutor to process multiple playlists simultaneously
 
     # Use ThreadPoolExecutor to process multiple playlists simultaneously
     with ThreadPoolExecutor(max_workers=workercount) as executor:
@@ -89,27 +66,33 @@ def connection_handler():
     try:
         lidarr_playlists = getlidarrlists()
         print("Playlists grabbed")
-        lidarrworking = True
-        return (plex, sp, lidarr_playlists, lidarrworking)
+
     except Exception as lidarrfailed:
         print("Lidarr playlist import failed")
         print(lidarrfailed)
-        print(
-            "Lidarr import failed. Press ENTER to use a manual playlist ID (not implemented yet)"
-        )
-        playlistid = input("Enter playlistID: ")
-        if len(playlistid) <= 1:
-            print("No playlist provided, exiting...")
-            input()
-            exit()
+        print("Trying to read .env file for manual list...")
+        if config("PLAYLISTS", default=None):
+            lidarr_playlists = config("PLAYLISTS").split(",")
         else:
-            lidarrworking = False
-            return (plex, sp, playlistid, lidarrworking)
+            print(
+                "Lidarr import failed, no playlists found in .env. Press ENTER to use a manual playlist ID"
+            )
+            playlistid = input("Enter playlistID: ")
+            if len(playlistid) <= 1:
+                print("No playlist provided, exiting...")
+                input()
+                exit()
+            else:
+                lidarr_playlists = []
+                lidarr_playlists.append(playlistid)
+
+    return (plex, sp, lidarr_playlists)
 
 
 def main():
-    plex, sp, lidarr_playlists, lidarrworking = connection_handler()
-
+    
+    plex, sp, lidarr_playlists = connection_handler()
+    print(lidarr_playlists)
     workercount = int(config("WORKERS"))
 
     # Convert comma-separated users string to list of users
