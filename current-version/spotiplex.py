@@ -27,14 +27,15 @@ def connect_spotify():
         )
     )
 
-
 def extract_playlist_id(playlist_url):  # parse playlist ID from URL if applicable
+    if "?si=" in playlist_url:
+        playlist_url = playlist_url.split("?si=")[0]
+        
     return (
         playlist_url.split("playlist/")[1]
         if "playlist/" in playlist_url
         else playlist_url
     )
-
 
 def get_spotify_tracks(sp, playlist_id):
     try:
@@ -225,6 +226,7 @@ def lidarr_import(LIDARR_IP, playlist, plex, users):
 def process_playlist(playlist, plex, sp):
     try:
         playlist_id = extract_playlist_id(playlist)
+        print(playlist_id)
         playlist_name = get_playlist_name(sp, playlist_id)
         spotify_tracks = get_spotify_playlist_tracks(sp, playlist_id)
         plex_tracks, _ = check_tracks_in_plex(plex, spotify_tracks)
