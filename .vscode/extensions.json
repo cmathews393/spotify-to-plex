@@ -1,0 +1,23 @@
+{
+    "recommendations": [
+        "ms-vscode.azure-repos",
+        "ms-vscode-remote.remote-containers",
+        "irongeek.vscode-env",
+        "github.remotehub",
+        "eamodio.gitlens",
+        "oderwat.indent-rainbow",
+        "ms-python.vscode-pylance",
+        "ms-python.python",
+        "ms-vscode-remote.remote-ssh",
+        "ms-vscode-remote.remote-ssh-edit",
+        "ms-vscode.remote-server",
+        "ms-vscode-remote.vscode-remote-extensionpack",
+        "ms-vscode.remote-explorer",
+        "ms-vscode.remote-repositories",
+        "rangav.vscode-thunder-client",
+        "vscode-icons-team.vscode-icons",
+        "ms-vscode-remote.remote-wsl",
+        "redhat.vscode-yaml",
+        "ms-python.black-formatter"
+    ]
+}
