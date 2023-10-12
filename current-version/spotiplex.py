@@ -175,7 +175,12 @@ def create_list(plexuser, plextracks, playlist_name, playlist_id, replace):
             if replace is True:
                 existingtracks = plexconn.fetchItem(plexplaylist_id).items()
                 plextracks.extend(existingtracks)
+                oldplaylist = plexconn.playlist(title=playlist_name)
+                print(oldplaylist)
+                oldplaylist.delete()
                 plex_playlist = plexconn.createPlaylist(title=playlist_name, items=plextracks)
+                plex_playlist.edit(title=playlist_name, summary=f"Synced from Spotify Playlist '{playlist_name}' <br> https://open.spotify.com/playlist/{playlist_id}")
+                #mixins > add poster?
             else:
                 plexconn.fetchItem(plexplaylist_id).addItems(plextracks)
             # print(f"Playlist '{playlist_name}' synchronized with Spotify")
