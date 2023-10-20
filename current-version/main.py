@@ -12,8 +12,8 @@ from spotiplex import (
 import concurrent.futures
 from concurrent.futures import ThreadPoolExecutor
 from decouple import config
-
-
+import schedule
+import time
 
 
 def process_for_user(user, plex, sp, lidarr_playlists, workercount, replace):
@@ -106,6 +106,17 @@ def main():
     for user in userlist:
         process_for_user(user.strip(), plex, sp, lidarr_playlists, workercount, replace)
 
+interval = int(config("INTERVAL"))
 
-if __name__ == "__main__":
-    main()
+
+if interval > 0:
+    schedule.every(interval).seconds.do(main)
+
+# Infinite loop to keep the script running
+    while True:
+        schedule.run_pending()
+        time.sleep(1)
+
+else:
+    if __name__ == "__main__":
+        main()
