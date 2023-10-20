@@ -17,7 +17,7 @@
 <br>
 2). Install plexapi, spotipy, and python-decouple ("pip install python-decouple plexapi spotipy")
 
-<h2> Setup </h2>
+<h2> Setup (Script version)</h2>
 1). Clone the repo
 <br>
 2). Rename default.env to .env
@@ -31,6 +31,16 @@
     c). Get Lidarr API key
     <br>
 4). Run "main.py" from the "current-version" folder
+
+<h2> Setup (Docker Version)</h2>
+Note: I've only tested on Linux, Docker version 24.0.5, build 24.0.5-0ubuntu1~22.04.1. Anything else is "unsupported" I guess, but if you have issues let me know, especially on Docker Desktop for Windows. I can't reliably test because I don't want to upgrade to Win11, but I can spin up a VM if needed
+
+1). `docker pull 0xchloe/spotiplex`
+2). `touch spotiplex.env`
+3). Copy the contents of default.env from this repo to your new .env file, and edit as needed
+4). `docker run --env-file spotiplex.env 0xchloe/spotiplex`
+5). Re-start container to re-sync. For obvious reasons, manual input is not supported for the container, so if you need to manually input playlist ID's and for whatever reason can't use your env, clone the repo instead
+
 
 
 # <h4>Latest Features:</h4>
