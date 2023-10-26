@@ -6,5 +6,5 @@ WORKDIR ${SRC_DIR}
 
 ENV PYTHONUNBUFFERED=1
 
-RUN pip install plexapi spotipy python-decouple
+RUN pip install -r requirements.txt
 CMD ["python", "main.py"]
