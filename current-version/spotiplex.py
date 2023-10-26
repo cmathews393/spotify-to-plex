@@ -7,6 +7,7 @@ import urllib3
 from decouple import config
 from datetime import date
 
+
 def connect_plex():
     urllib3.disable_warnings(
         urllib3.exceptions.InsecureRequestWarning
@@ -27,15 +28,17 @@ def connect_spotify():
         )
     )
 
+
 def extract_playlist_id(playlist_url):  # parse playlist ID from URL if applicable
     if "?si=" in playlist_url:
         playlist_url = playlist_url.split("?si=")[0]
-        
+
     return (
         playlist_url.split("playlist/")[1]
         if "playlist/" in playlist_url
         else playlist_url
     )
+
 
 def get_spotify_tracks(sp, playlist_id):
     try:
@@ -178,9 +181,14 @@ def create_list(plexuser, plextracks, playlist_name, playlist_id, replace):
                 oldplaylist = plexconn.playlist(title=playlist_name)
                 print(oldplaylist)
                 oldplaylist.delete()
-                plex_playlist = plexconn.createPlaylist(title=playlist_name, items=plextracks)
-                plex_playlist.edit(title=playlist_name, summary=f"Synced from Spotify Playlist '{playlist_name}' <br> https://open.spotify.com/playlist/{playlist_id}")
-                #mixins > add poster?
+                plex_playlist = plexconn.createPlaylist(
+                    title=playlist_name, items=plextracks
+                )
+                plex_playlist.edit(
+                    title=playlist_name,
+                    summary=f"Synced from Spotify Playlist '{playlist_name}' Link: https://open.spotify.com/playlist/{playlist_id}",
+                )
+                # mixins > add poster?
             else:
                 plexconn.fetchItem(plexplaylist_id).addItems(plextracks)
             # print(f"Playlist '{playlist_name}' synchronized with Spotify")
