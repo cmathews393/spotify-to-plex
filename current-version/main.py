@@ -90,7 +90,6 @@ def connection_handler():
 
 
 def main():
-    
     plex, sp, lidarr_playlists = connection_handler()
     print(lidarr_playlists)
     workercount = int(config("WORKERS"))
@@ -106,17 +105,17 @@ def main():
     for user in userlist:
         process_for_user(user.strip(), plex, sp, lidarr_playlists, workercount, replace)
 
-interval = int(config("INTERVAL"))
 
+if __name__ == "__main__":
+    main()
 
-if interval > 0:
-    schedule.every(interval).seconds.do(main)
+    interval = int(config("INTERVAL"))
 
-# Infinite loop to keep the script running
-    while True:
-        schedule.run_pending()
-        time.sleep(1)
+    if interval > 0:
+        # Schedule the main() function to run at the specified interval
+        schedule.every(interval).seconds.do(main)
 
-else:
-    if __name__ == "__main__":
-        main()
+        # Infinite loop to keep the script running
+        while True:
+            schedule.run_pending()
+            time.sleep(1)
