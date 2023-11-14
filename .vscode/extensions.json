@@ -4,7 +4,6 @@
         "ms-vscode-remote.remote-containers",
         "irongeek.vscode-env",
         "github.remotehub",
-        "eamodio.gitlens",
         "oderwat.indent-rainbow",
         "ms-python.vscode-pylance",
         "ms-python.python",
