@@ -1,6 +1,8 @@
 import json
 from confighandler import read_config
 
+# test
+
 
 class LidarrAPI:
     def __init__(self):
