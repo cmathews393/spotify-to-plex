@@ -1,10 +1,10 @@
+import json
+from confighandler import read_config
+
+
 class LidarrAPI:
     def __init__(self):
-        self.RADARR_IP = "http://192.168.1.160:7878"
-        self.RADARR_TOKEN = "2e842c75b67d46a7bd234bbbd3f66568"
-        self.RADARR_ENDPOINT = read_config("RADARR_ENDPOINT", default="/api/v3/")
-        self.headers = {"X-Api-Key": self.RADARR_TOKEN}
-        self.base_url = f"{self.RADARR_IP}{self.RADARR_ENDPOINT}"
+        self.config = read_config()
 
     def make_request(self, endpoint_path=""):
         full_url = self.base_url + endpoint_path
@@ -17,3 +17,8 @@ class LidarrAPI:
         else:
             print(f"Error: {response.status_code} - {response.text}")
             return None
+
+    def lidarrconfig(self):
+        url = self.config.get("url")
+        token = self.config.get("api_key")
+        return url, token
