@@ -16,6 +16,12 @@ import schedule
 import time
 
 
+
+def debug_listplexsystemaccounts(plex):
+    plex = plex.systemAccounts()
+    print(plex)
+
+
 def process_for_user(user, plex, sp, lidarr_playlists, workercount, replace):
     if user:
         # Switch to the alternate user context
@@ -107,17 +113,22 @@ def main():
 
 
 if __name__ == "__main__":
-    start_time = time.time()
-    main()
-    print("--- %s seconds ---" % (time.time() - start_time))
-    
-    interval = int(config("INTERVAL"))
 
-    if interval > 0:
-        # Schedule the main() function to run at the specified interval
-        schedule.every(interval).seconds.do(main)
+    if config("DEBUG") is "False":
 
-        # Infinite loop to keep the script running
-        while True:
-            schedule.run_pending()
-            time.sleep(1)
+        start_time = time.time()
+        main()
+        print("--- %s seconds ---" % (time.time() - start_time))
+        
+        interval = int(config("INTERVAL"))
+
+        if interval > 0:
+            # Schedule the main() function to run at the specified interval
+            schedule.every(interval).seconds.do(main)
+
+            # Infinite loop to keep the script running
+            while True:
+                schedule.run_pending()
+                time.sleep(1)
+    else:
+        debug_listplexsystemaccounts()
