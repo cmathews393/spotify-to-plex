@@ -1,5 +1,8 @@
-from plex import connect_plex
-from confighandler import ensure_config_exists
+from plex import PlexConnector as pc
+from confighandler import ensure_config_exists, read_config
+from spotify import SpotifyConnector as sc
 
-# plexserver = connect_plex()
-ensure_config_exists()
+
+plexconnection= pc.connect_plex()
+spotifyconnection = sc.connect_spotify()
+lidarrconnection = lc.connect_lidarr()
