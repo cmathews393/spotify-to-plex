@@ -4,8 +4,9 @@ from datetime import date
 from confighandler import read_config
 
 
-class SpotifyConnector:
+class SpotifyConnection:
     def __init__(self):
+        self.spotifyconfig()
         self.sp = self.connect_spotify()
 
     def spotifyconfig(self):
@@ -21,18 +22,22 @@ class SpotifyConnector:
             )
         )
 
-    def extract_playlist_id(self, playlist_url):
-        if "?si=" in playlist_url:
-            playlist_url = playlist_url.split("?si=")[0]
-        return (
-            playlist_url.split("playlist/")[1]
-            if "playlist/" in playlist_url
-            else playlist_url
-        )
 
-    def get_playlist_name(self, playlist_id):
+
+
+
+class SpotifyPlaylists:
+    def __init__(self, sc, playlist_ids):
+        self.spotify = sc
+        self.playlist_ids = playlist_ids
+
+    def collect_playlist_names(self):
+        for playlist in self.playlist_ids:
+            playlist_name = self.get_playlist_name(playlist)
+            self.playlist_names.append(playlist_name)
+    def get_playlist_name(self):
         try:
-            playlist_data = self.sp.playlist(playlist_id, fields=["name"])
+            playlist_data = self.spotify.playlist(self.playlist_id, fields=["name"])
             playlistname = playlist_data["name"]
             if "Discover Weekly" in playlistname or "Daily Mix" in playlistname:
                 curdate = date.today()
@@ -47,19 +52,6 @@ class SpotifyConnector:
                 "Error retrieving playlist name. If this is unexpected, please submit a bug report."
             )
             print(e)
-
-    def get_spotify_tracks(self, playlist_id):
-        try:
-            results = self.sp.playlist_tracks(playlist_id)
-        except Exception as exception1:
-            name = self.get_playlist_name(
-                self.sp, playlist_id
-            )  # Assuming get_playlist_name is imported
-            print(
-                f"Error getting tracks for playlist {name}, playlistID: {playlist_id}"
-            )
-            print(exception1)
-        return results
 
     def get_spotify_playlist_tracks(self, playlist_id):
         spotify_tracks = []
