@@ -1,109 +1,70 @@
 import requests
 import urllib3
-from confighandler import read_config
 from plexapi.server import PlexServer
-from plexapi.playlist import Playlist
+from confighandler import read_config
 
 
-class PlexConnector:
+class PlexService:
     def __init__(self):
-        self.config = read_config("plex")  # Call read_config directly
-        self.plex_connection = self.create_plex_session()
+        self.config = read_config("plex")
+        self.server_url = self.config.get("url")
+        self.server_token = self.config.get("api_key")
+        self.plex = self.connect_plex()
+        self.replace = self.config.get("replace")
 
-    def plex_config(self):
-        url = self.config.get("url")
-        token = self.config.get("api_key")
-        return url, token
-
-    def create_plex_session(self):
-        url, token = self.plex_config()
+    def connect_plex(self):
         session = requests.Session()
-        session.verify = False  # Ignore SSL errors
+        session.verify = False
         urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
-        return PlexServer(url, token, session=session)
+        return PlexServer(self.server_url, self.server_token, session=session)
 
-
-class PlexTracks:
-    def __init__(self, plexcon, spotify_tracks):
-        self.music = plexcon.library.section("Music")
-        self.spotify_tracks = spotify_tracks
-        
-
-    def check_tracks_in_plex(self):
-        """Check if the tracks from Spotify exist in Plex."""
+    def check_tracks_in_plex(self, spotify_tracks):
+        music_lib = self.plex.library.section("Music")
         plex_tracks = []
-        music = self.plex.library.section("Music")
-        for track_name, artist_name in self.spotify_tracks:
-            # print(f"Track: {track_name}, Artist: {artist_name}")
-            self.artist_tracks_in_plex = music.search(title=artist_name)
-            if self.artist_tracks_in_plex:
+        orig_tracks = []
+
+        for track_name, artist_name in spotify_tracks:
+            artist_tracks_in_plex = music_lib.search(title=artist_name)
+            if artist_tracks_in_plex:
                 try:
-                    for track in self.artist_tracks_in_plex:
+                    for track in artist_tracks_in_plex:
                         plex_track = track.track(title=track_name)
                         if plex_track:
                             plex_tracks.append(plex_track)
-                except Exception as plex_search_error:
-                    print(plex_search_error)
-                    continue
+                        else:
+                            orig_tracks.append([track_name, "Song Not in Plex"])
+                except Exception as plex_search_exception:
+                    print(plex_search_exception)
             else:
-                print("Artist not Found")
                 continue
+
         return plex_tracks
 
-class PlexPlaylists:
-    def __init__(self, plexuser, plextracks, replace):
-        self.plex_playlists = plexuser.playlists()
-        
-        
-
-
-def create_list(plexuser, plextracks, playlist_name, playlist_id, replace):
-    plexconn = plexuser
-    plexplaylist_id = next(
-        (
-            playlist.ratingKey
-            for playlist in plexconn.playlists()
-            if playlist_name in playlist.title
-        ),
-        None,
-    )
-
-    if plexplaylist_id:  # If playlist exists
-        print(f"Playlist found, matching and updating: {playlist_name}")
-        try:
-            if replace is True:
-                existingtracks = plexconn.fetchItem(plexplaylist_id).items()
-                plextracks.extend(existingtracks)
-                oldplaylist = plexconn.playlist(title=playlist_name)
-                print(oldplaylist)
-                oldplaylist.delete()
-                plex_playlist = plexconn.createPlaylist(
-                    title=playlist_name, items=plextracks
-                )
-                plex_playlist.edit(
-                    title=playlist_name,
-                    summary=f"Synced from Spotify Playlist '{playlist_name}' Link: https://open.spotify.com/playlist/{playlist_id}",
-                )
-                # mixins > add poster?
+    def create_or_update_playlist(
+        self, playlist_name, playlist_id, tracks
+    ):
+        existing_playlist = self.find_playlist_by_name(playlist_name)
+        if existing_playlist:
+            if self.replace:
+                existing_playlist.delete()
+                return self.create_playlist(playlist_name, playlist_id, tracks)
             else:
-                plexconn.fetchItem(plexplaylist_id).addItems(plextracks)
-            # print(f"Playlist '{playlist_name}' synchronized with Spotify")
-            return plexplaylist_id
+                existing_playlist.addItems(tracks)
+                return existing_playlist
+        else:
+            return self.create_playlist(playlist_name, playlist_id, tracks)
+
+    def find_playlist_by_name(self, playlist_name):
+        playlists = self.plex.playlists()
+        for playlist in playlists:
+            if playlist.title == playlist_name:
+                return playlist
+        return None
+
+    def create_playlist(self, playlist_name, playlist_id, tracks):
+        try:
+            new_playlist = self.plex.createPlaylist(playlist_name, items=tracks)
+            return new_playlist
         except Exception as e:
-            print(
-                f"Playlist {playlist_id} appears to match existing, but an issue occurred while updating."
-            )
-            print(e)
-
-    else:  # If playlist doesn't exist
-        try:
-            plex_playlist = plexconn.createPlaylist(
-                title=playlist_name, items=plextracks
-            )
-            if plex_playlist:
-                print(f"Playlist '{playlist_name}' created successfully on Plex.")
-            else:
-                print("Failed to create the playlist.")
-                return 0
-        except Exception:
-            print("Creation failed. Ensure there are tracks in your playlist.")
+            print(f"Error creating playlist {playlist_name}: {e}")
+            return None
