@@ -7,4 +7,4 @@ WORKDIR ${SRC_DIR}
 ENV PYTHONUNBUFFERED=1
 
 RUN pip install -r requirements.txt
-CMD ["python", "main.py"]
+CMD ["python", "./spotiplex/main.py"]
