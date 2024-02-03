@@ -108,7 +108,6 @@ class Spotiplex:
                 "lidarr_sync": os.environ.get("SPOTIPLEX_LIDARR_SYNC", "True"),
                 "plex_users": os.environ.get("USERS", ""),
                 "worker_count": int(os.environ.get("WORKERS", 1)),
-                "replace_existing": os.environ.get("REPLACE", "False"),
                 "seconds_interval": int(os.environ.get("INTERVAL", 86400)),
                 "manual_playlists": os.environ.get(
                     "SPOTIPLEX_MANUAL_PLAYLISTS", "False"
@@ -148,7 +147,6 @@ class Spotiplex:
                         "Enter the number of worker threads (Not recommened to exceed core count. 5 is usually a good value.): "
                     )
                 ),
-                "replace_existing": input("Replace existing playlists? (True/False): "),
                 "seconds_interval": int(
                     input(
                         "Enter the interval in seconds for scheduling, set to 0 if you don't want the script to repeat: "
