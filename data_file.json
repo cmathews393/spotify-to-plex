@@ -1,0 +1,473 @@
+[
+    {
+        "enableAutomaticAdd": true,
+        "shouldMonitor": "entireArtist",
+        "shouldMonitorExisting": true,
+        "shouldSearch": false,
+        "rootFolderPath": "E:\\PLEX\\Music\\",
+        "monitorNewItems": "all",
+        "qualityProfileId": 2,
+        "metadataProfileId": 1,
+        "listType": "lastFm",
+        "listOrder": 2,
+        "minRefreshInterval": "12:00:00",
+        "name": "cm393",
+        "fields": [
+            {
+                "order": 0,
+                "name": "userId",
+                "label": "Last.fm UserID",
+                "helpText": "Last.fm UserId to pull artists from",
+                "value": "Chrism393",
+                "type": "textbox",
+                "advanced": false,
+                "privacy": "normal",
+                "isFloat": false
+            },
+            {
+                "order": 1,
+                "name": "method",
+                "label": "List",
+                "value": 0,
+                "type": "select",
+                "advanced": false,
+                "selectOptions": [
+                    {
+                        "value": 0,
+                        "name": "Top Artists",
+                        "order": 52,
+                        "hint": "(0)"
+                    },
+                    {
+                        "value": 1,
+                        "name": "Top Albums",
+                        "order": 54,
+                        "hint": "(1)"
+                    }
+                ],
+                "privacy": "normal",
+                "isFloat": false
+            },
+            {
+                "order": 2,
+                "name": "period",
+                "label": "Period",
+                "helpText": "The time period over which to retrieve top artists for",
+                "value": 0,
+                "type": "select",
+                "advanced": false,
+                "selectOptions": [
+                    {
+                        "value": 0,
+                        "name": "Overall",
+                        "order": 60,
+                        "hint": "(0)"
+                    },
+                    {
+                        "value": 1,
+                        "name": "Last Week",
+                        "order": 62,
+                        "hint": "(1)"
+                    },
+                    {
+                        "value": 2,
+                        "name": "Last Month",
+                        "order": 64,
+                        "hint": "(2)"
+                    },
+                    {
+                        "value": 3,
+                        "name": "Last 3 Months",
+                        "order": 66,
+                        "hint": "(3)"
+                    },
+                    {
+                        "value": 4,
+                        "name": "Last 6 Months",
+                        "order": 68,
+                        "hint": "(4)"
+                    },
+                    {
+                        "value": 5,
+                        "name": "Last 12 Months",
+                        "order": 70,
+                        "hint": "(5)"
+                    }
+                ],
+                "privacy": "normal",
+                "isFloat": false
+            },
+            {
+                "order": 3,
+                "name": "count",
+                "label": "Count",
+                "helpText": "Number of results to pull from list (Max 1000)",
+                "value": 250,
+                "type": "number",
+                "advanced": false,
+                "privacy": "normal",
+                "isFloat": false
+            }
+        ],
+        "implementationName": "Last.fm User",
+        "implementation": "LastFmUser",
+        "configContract": "LastFmUserSettings",
+        "infoLink": "https://wiki.servarr.com/lidarr/supported#lastfmuser",
+        "tags": [
+            1
+        ],
+        "id": 2
+    },
+    {
+        "enableAutomaticAdd": true,
+        "shouldMonitor": "entireArtist",
+        "shouldMonitorExisting": true,
+        "shouldSearch": true,
+        "rootFolderPath": "E:\\PLEX\\Music\\",
+        "monitorNewItems": "all",
+        "qualityProfileId": 2,
+        "metadataProfileId": 1,
+        "listType": "spotify",
+        "listOrder": 1,
+        "minRefreshInterval": "12:00:00",
+        "name": "Playlists Import",
+        "fields": [
+            {
+                "order": 0,
+                "name": "accessToken",
+                "label": "Access Token",
+                "value": "BQAH6VZTh8eMmJ7YgELgWYBiLiSqNzA3hUto4Gwh_NprsQia4sQ1hTu1VuWrWWzQqtaPID-NLRogAnEIEx5NpwAah2rAg0CsRlZdWC8Myj22DuLSJ4RdHfqC_SypCVAzzk409agjD45HEQZ1QlrLRs9KDT2uyIhv1bw7b1NnNKlCL0dWZax5jXR_awCJ2qk",
+                "type": "textbox",
+                "advanced": false,
+                "hidden": "hidden",
+                "privacy": "normal",
+                "isFloat": false
+            },
+            {
+                "order": 1,
+                "name": "refreshToken",
+                "label": "Refresh Token",
+                "value": "AQBZX4UZ2P3eHfOCyuOwf1mo95w6nIdVx7b8ok1dgNZ4gW-Hs86237KLb3alnbdx7jkr9HyYkGenwAhbzdrBQbQ8SqsLK0TYtSw4tbblka_lHL4wTtHlRlAtuVazY1Vv1n0",
+                "type": "textbox",
+                "advanced": false,
+                "hidden": "hidden",
+                "privacy": "normal",
+                "isFloat": false
+            },
+            {
+                "order": 2,
+                "name": "expires",
+                "label": "Expires",
+                "value": "2024-02-03T06:58:38Z",
+                "type": "textbox",
+                "advanced": false,
+                "hidden": "hidden",
+                "privacy": "normal",
+                "isFloat": false
+            },
+            {
+                "order": 3,
+                "name": "playlistIds",
+                "label": "Playlists",
+                "value": [
+                    "1sP6awIZxdfKil1NFyWpz3",
+                    "37i9dQZEVXcRJZf5yn6m1w",
+                    "37i9dQZF1DWSqBruwoIXkA",
+                    "37i9dQZF1DWW2hj3ZtMbuO",
+                    "37i9dQZF1DXdLEN7aqioXM",
+                    "37i9dQZF1E365bPTNgiK2W",
+                    "37i9dQZF1E37uKlAW0MvMv",
+                    "37i9dQZF1E39IiYmV2BQyD",
+                    "37i9dQZF1EJwUQgZXo7tHW",
+                    "37i9dQZF1EMbPeTqal9GyV",
+                    "37i9dQZF1EUMDoJuT8yJsl",
+                    "37i9dQZF1EVKuMoAJjoTIw",
+                    "37i9dQZF1F0sijgNaJdgit",
+                    "5ag9gCxNADXWRn4EB3SjUd",
+                    "6mCg8ApBsrU6Cb3cOTpTsS"
+                ],
+                "type": "playlist",
+                "advanced": false,
+                "privacy": "normal",
+                "isFloat": false
+            },
+            {
+                "order": 4,
+                "name": "signIn",
+                "label": "Authenticate with Spotify",
+                "value": "startOAuth",
+                "type": "oAuth",
+                "advanced": false,
+                "privacy": "normal",
+                "isFloat": false
+            }
+        ],
+        "implementationName": "Spotify Playlists",
+        "implementation": "SpotifyPlaylist",
+        "configContract": "SpotifyPlaylistSettings",
+        "infoLink": "https://wiki.servarr.com/lidarr/supported#spotifyplaylist",
+        "tags": [
+            2
+        ],
+        "id": 1
+    },
+    {
+        "enableAutomaticAdd": true,
+        "shouldMonitor": "entireArtist",
+        "shouldMonitorExisting": true,
+        "shouldSearch": false,
+        "rootFolderPath": "E:\\PLEX\\Music\\",
+        "monitorNewItems": "all",
+        "qualityProfileId": 2,
+        "metadataProfileId": 1,
+        "listType": "spotify",
+        "listOrder": 1,
+        "minRefreshInterval": "12:00:00",
+        "name": "SpotifyFollowedArtists alyssa",
+        "fields": [
+            {
+                "order": 0,
+                "name": "accessToken",
+                "label": "Access Token",
+                "value": "BQBYiLSj9wFLz-qU1Ez1DXg38t10h1XENnvhPlPtgiaQ3igFd2tX1rwrqahLczncRdqJlmpwKXwLAiUVMTDCOvMYYC4oDrNb8wmgBQmEN3rgdsW5OOlRcLePcxsL-aYFuAfONMC7rp6pdBQkCjnYlDc_jc3XehU5Cmh-FrNAF3m4r4vsrrYMFPI5X4z72dtaamI1A6vakZOTtDqpK64Ugfie6xZJcpcU0gE",
+                "type": "textbox",
+                "advanced": false,
+                "hidden": "hidden",
+                "privacy": "normal",
+                "isFloat": false
+            },
+            {
+                "order": 1,
+                "name": "refreshToken",
+                "label": "Refresh Token",
+                "value": "AQBycW4hJ-w4kqSBwdOD-UUDe1riL6uNJOflE9srEOFxlSjA7Jt2hk_94aNWAWRWP3eJZsjrKIRexziRNGQSw0DS3koXKzq2rsACr-pBW2Ra7SWExvoKslbVHS12j2onlkk",
+                "type": "textbox",
+                "advanced": false,
+                "hidden": "hidden",
+                "privacy": "normal",
+                "isFloat": false
+            },
+            {
+                "order": 2,
+                "name": "expires",
+                "label": "Expires",
+                "value": "2024-02-03T00:01:59Z",
+                "type": "textbox",
+                "advanced": false,
+                "hidden": "hidden",
+                "privacy": "normal",
+                "isFloat": false
+            },
+            {
+                "order": 3,
+                "name": "signIn",
+                "label": "Authenticate with Spotify",
+                "value": "startOAuth",
+                "type": "oAuth",
+                "advanced": false,
+                "privacy": "normal",
+                "isFloat": false
+            }
+        ],
+        "implementationName": "Spotify Followed Artists",
+        "implementation": "SpotifyFollowedArtists",
+        "configContract": "SpotifyFollowedArtistsSettings",
+        "infoLink": "https://wiki.servarr.com/lidarr/supported#spotifyfollowedartists",
+        "tags": [],
+        "id": 3
+    },
+    {
+        "enableAutomaticAdd": true,
+        "shouldMonitor": "entireArtist",
+        "shouldMonitorExisting": true,
+        "shouldSearch": true,
+        "rootFolderPath": "E:\\PLEX\\Music\\",
+        "monitorNewItems": "all",
+        "qualityProfileId": 2,
+        "metadataProfileId": 1,
+        "listType": "spotify",
+        "listOrder": 1,
+        "minRefreshInterval": "12:00:00",
+        "name": "SpotifyPlaylist",
+        "fields": [
+            {
+                "order": 0,
+                "name": "accessToken",
+                "label": "Access Token",
+                "value": "BQBacZ6zTLKyxKyAflcMAPrnbaQCXCY-bJZ345FQXe83X9XedoLV8yhllhaFi5mUIT6ZmrnQPOQ7g5UF3dh4OXteu8DQXmGPbL3agcFNolkebuNmOJs8BFG2Xdxq1XgQuPG8tC_GtcI_raOCHZggeJcNke6m6aOO28yltqm4MH_0jwxCAbLVwVT3akPpRqvzbemVGL36U2ZhyJ08yNLc_Lml3KjyrfZrNpw",
+                "type": "textbox",
+                "advanced": false,
+                "hidden": "hidden",
+                "privacy": "normal",
+                "isFloat": false
+            },
+            {
+                "order": 1,
+                "name": "refreshToken",
+                "label": "Refresh Token",
+                "value": "AQBzu_9kZU3wpzfdB_21oVkgsKAQRouhLPXBuoqXpGvvxvZAMgHZo-HYa2NrjdhEjvMiIuBQzsj_dRTykqT-o7FhZJHVF_G35H9LlCb9y9GTUpvv0mHVDRsoF0Uar8j5oWg",
+                "type": "textbox",
+                "advanced": false,
+                "hidden": "hidden",
+                "privacy": "normal",
+                "isFloat": false
+            },
+            {
+                "order": 2,
+                "name": "expires",
+                "label": "Expires",
+                "value": "2024-02-03T08:14:10Z",
+                "type": "textbox",
+                "advanced": false,
+                "hidden": "hidden",
+                "privacy": "normal",
+                "isFloat": false
+            },
+            {
+                "order": 3,
+                "name": "playlistIds",
+                "label": "Playlists",
+                "value": [
+                    "00XMyPpNNCNTOG7KL8IH6k",
+                    "0H64fSy7GI9PdBjzuJDNbl",
+                    "0JOiknngUoGssGYWVH2pPT",
+                    "0NLX4dlGhWwKz3KTUVaqB6",
+                    "0Yqr1exjMH64wjcCKpRmPv",
+                    "0koMMyLS8JyB5rHRAqCH3d",
+                    "20LKsiDZd4ALrlihncFcFa",
+                    "2VCUG2HWlEeq1zvUvRkN80",
+                    "2rh75hqCq3CJJXOAY3py9G",
+                    "2vGTy7KJoI0agfeEolWjAc",
+                    "32R3aBqbExG2y562Mm9hi2",
+                    "37i9dQZF1DWSqBruwoIXkA",
+                    "37i9dQZF1DWTJ7xPn4vNaz",
+                    "37i9dQZF1DWVV27DiNWxkR",
+                    "37i9dQZF1DWViyN2b86Qnu",
+                    "37i9dQZF1DWVpjAJGB70vU",
+                    "37i9dQZF1DWW2hj3ZtMbuO",
+                    "37i9dQZF1DWWwzidNQX6jx",
+                    "37i9dQZF1DWY1j3jZdCWOQ",
+                    "37i9dQZF1DWZ7VnoXD1s7S",
+                    "37i9dQZF1DWZREeDGwM6aE",
+                    "37i9dQZF1DWZZCoBbLu26P",
+                    "37i9dQZF1DX1Hya1sRqqxI",
+                    "37i9dQZF1DX1MUPbVKMgJE",
+                    "37i9dQZF1DX1rVvRgjX59F",
+                    "37i9dQZF1DX45grRWk2ghU",
+                    "37i9dQZF1DX5TMFhaZc9ov",
+                    "37i9dQZF1DXb67OkZ6150Z",
+                    "37i9dQZF1DXbEm2sKzgoJ8",
+                    "37i9dQZF1DXbvE0SE0Cczh",
+                    "37i9dQZF1DXcaEXdyjLdxm",
+                    "37i9dQZF1DXdQvOLqzNHSW",
+                    "37i9dQZF1DZ06evO2zJOi2",
+                    "37i9dQZF1E4v4fLwb7KeYj",
+                    "37i9dQZF1EIcRCHBhAAyyL",
+                    "37i9dQZF1EIg1p0x6beBBb",
+                    "37i9dQZF1EJwUQgZXo7tHW",
+                    "37i9dQZF1EM9G8mblylVXA",
+                    "37i9dQZF1EUMDoJuT8yJsl",
+                    "37i9dQZF1F0sijgNaJdgit",
+                    "3SbE5Sk5MWtNc0GRTU0X6d",
+                    "3mZNyQ12MNXxsgPJ6Ea28e",
+                    "3whMqT9kgktGwhx14AiEky",
+                    "43BtEud6E3DurN2b1YNWKv",
+                    "47hLYrfDftXK0ZR2WL1jsS",
+                    "4ASGb9HSoMEUekd7ClxZxZ",
+                    "4sxFwKunbSytYKjd4dLh8S",
+                    "5kieuZZuWJFB2DjVs0iYmG",
+                    "71MQA7wMs10XNdihTWns0B",
+                    "7cHE11JJ07SM56JzsBxWtv",
+                    "7mz5aqSO0DF38aKc65ncah"
+                ],
+                "type": "playlist",
+                "advanced": false,
+                "privacy": "normal",
+                "isFloat": false
+            },
+            {
+                "order": 4,
+                "name": "signIn",
+                "label": "Authenticate with Spotify",
+                "value": "startOAuth",
+                "type": "oAuth",
+                "advanced": false,
+                "privacy": "normal",
+                "isFloat": false
+            }
+        ],
+        "implementationName": "Spotify Playlists",
+        "implementation": "SpotifyPlaylist",
+        "configContract": "SpotifyPlaylistSettings",
+        "infoLink": "https://wiki.servarr.com/lidarr/supported#spotifyplaylist",
+        "tags": [
+            3
+        ],
+        "id": 5
+    },
+    {
+        "enableAutomaticAdd": true,
+        "shouldMonitor": "entireArtist",
+        "shouldMonitorExisting": true,
+        "shouldSearch": false,
+        "rootFolderPath": "E:\\PLEX\\Music\\",
+        "monitorNewItems": "all",
+        "qualityProfileId": 2,
+        "metadataProfileId": 1,
+        "listType": "spotify",
+        "listOrder": 1,
+        "minRefreshInterval": "12:00:00",
+        "name": "SpotifySavedAlbums alyssa",
+        "fields": [
+            {
+                "order": 0,
+                "name": "accessToken",
+                "label": "Access Token",
+                "value": "BQAdvJFsiD_1lfFfsbqc9cNlZHlf7EaHN1f3HPwEExsvchkXppm4Fz9slHw-f6DkMvXWGGewp_qCMW8uNDDZ0cmE9uDgnxm6nUx4_kabjcxwmDG54lAkOQ-TTMy9krRW-h9cQS452gWsO-DVZpoJXkZty9g4-U3BaWj6LV1PdgOfaOWXWnLdwvicWGUpvYlloISVLO_lt2DAnK1_Mjs3pARs604E4fLItNo",
+                "type": "textbox",
+                "advanced": false,
+                "hidden": "hidden",
+                "privacy": "normal",
+                "isFloat": false
+            },
+            {
+                "order": 1,
+                "name": "refreshToken",
+                "label": "Refresh Token",
+                "value": "AQBbMpsbeXGGN0pnAHo81tBxdC1sgss4wdRyRz1eO9ptvYvk6IhrS9X0b4v7D44uR9KVW3T8L1mZX8LhJMnvPM3GorkgKn66llm7hV5wbdbtFdeURdpqmWOqTbkW3kcp0Wg",
+                "type": "textbox",
+                "advanced": false,
+                "hidden": "hidden",
+                "privacy": "normal",
+                "isFloat": false
+            },
+            {
+                "order": 2,
+                "name": "expires",
+                "label": "Expires",
+                "value": "2024-02-03T00:01:59Z",
+                "type": "textbox",
+                "advanced": false,
+                "hidden": "hidden",
+                "privacy": "normal",
+                "isFloat": false
+            },
+            {
+                "order": 3,
+                "name": "signIn",
+                "label": "Authenticate with Spotify",
+                "value": "startOAuth",
+                "type": "oAuth",
+                "advanced": false,
+                "privacy": "normal",
+                "isFloat": false
+            }
+        ],
+        "implementationName": "Spotify Saved Albums",
+        "implementation": "SpotifySavedAlbums",
+        "configContract": "SpotifySavedAlbumsSettings",
+        "infoLink": "https://wiki.servarr.com/lidarr/supported#spotifysavedalbums",
+        "tags": [],
+        "id": 4
+    }
+]

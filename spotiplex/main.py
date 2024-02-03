@@ -13,19 +13,24 @@ class Spotiplex:
     def __init__(self):
         self.config = read_config("spotiplex")
         self.first_run = self.config.get("first_run")
-        if self.first_run is None or self.first_run == "True":
+        if (
+            self.first_run is None
+            or self.first_run == "True"
+            or Spotiplex.is_running_in_docker()
+        ):
             Spotiplex.configurator(self)
         self.spotify_service = SpotifyService()
         self.plex_service = PlexService()
+        self.lidarr_api = lapi()
 
-        self.lidarr_sync = self.config.get("lidarr_sync")
+        self.lidarr_sync = (self.config.get("lidarr_sync", "false")).lower()
         self.plex_users = self.config.get("plex_users")
         self.user_list = self.plex_users.split(",") if self.plex_users else []
-        self.worker_count = self.config.get("worker_count")
+        self.worker_count = int(self.config.get("worker_count"))
         self.replace_existing = self.config.get("replace_existing")
-        self.seconds_interval = self.config.get("seconds_interval")
-        if self.lidarr_sync is True:
-            self.sync_lists = lapi.get_lidarr_playlists()
+        self.seconds_interval = int(self.config.get("seconds_interval"))
+        if self.lidarr_sync == "true":
+            self.sync_lists = self.lidarr_api.get_lidarr_playlists()
         else:
             self.sync_lists = self.config.get("manual_playlists")
         currentuser = self.plex_service.plex.myPlexAccount().username.lower()
@@ -59,7 +64,7 @@ class Spotiplex:
         return os.path.exists("/.dockerenv")
 
     def run(self):
-        for user in self.plex_users:
+        for user in self.user_list:
             self.process_for_user(user)
 
         if self.seconds_interval > 0:
@@ -68,21 +73,32 @@ class Spotiplex:
                 schedule.run_pending()
                 time.sleep(1)
 
+    def extract_playlist_id(playlist_url):  # parse playlist ID from URL if applicable
+        if "?si=" in playlist_url:
+            playlist_url = playlist_url.split("?si=")[0]
+
+        return (
+            playlist_url.split("playlist/")[1]
+            if "playlist/" in playlist_url
+            else playlist_url
+        )
+
     def process_playlist(
-        self, playlist, plex_service, spotify_service, replace_existing
+        self, playlists, plex_service, spotify_service, replace_existing
     ):
-        try:
-            playlist_id = self.extract_playlist_id(playlist)
-            print(playlist_id)
-            playlist_name = spotify_service.get_playlist_name(playlist_id)
-            spotify_tracks = spotify_service.get_playlist_tracks(playlist_id)
-            plex_tracks = plex_service.check_tracks_in_plex(spotify_tracks)
-            plex_service.create_or_update_playlist(
-                playlist_name, playlist_id, plex_tracks
-            )
-            print(f"Processed playlist '{playlist_name}'.")
-        except Exception as e:
-            print(f"Error processing playlist '{playlist}':", e)
+        for playlist in playlists:
+            try:
+                playlist_id = Spotiplex.extract_playlist_id(playlist)
+                print(playlist_id)
+                playlist_name = spotify_service.get_playlist_name(playlist_id)
+                spotify_tracks = spotify_service.get_playlist_tracks(playlist_id)
+                plex_tracks = plex_service.check_tracks_in_plex(spotify_tracks)
+                plex_service.create_or_update_playlist(
+                    playlist_name, playlist_id, plex_tracks
+                )
+                print(f"Processed playlist '{playlist_name}'.")
+            except Exception as e:
+                print(f"Error processing playlist '{playlist}':", e)
 
     def configurator(self):
         # Config for Spotiplex
@@ -140,7 +156,6 @@ class Spotiplex:
                 ),
                 "manual_playlists": input("Enter manual playlists (True/False): "),
             }
-            write_config("spotiplex", spotiplex_config)
 
             # Config for SpotifyService
             spotify_config = {
@@ -162,6 +177,9 @@ class Spotiplex:
                 "api_key": input("Enter Lidarr API Key: "),
             }
             write_config("lidarr", lidarr_config)
+
+            spotiplex_config["first_run"] = "False"
+            write_config("spotiplex", spotiplex_config)
 
             print("Configuration complete!")
 

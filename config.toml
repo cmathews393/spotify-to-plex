@@ -1,8 +1,21 @@
 [plex]
-api_key = ""
 url = "https://192.168.1.160:32400"
+api_key = "uMYZ7xr-FpuxDFXEcHu3"
+replace = "True"
 
 [lidarr]
-api_key = ""
 url = "http://192.168.1.160:8686"
+api_key = "1d2b2305bcc84f05b927c3edb0c6b7ab"
 
+[spotify]
+client_id = "1c24cfd2111a4024a7858439bbb7ddb4"
+api_key = "5098dca2086c4a8398f72fa35e614fec"
+
+[spotiplex]
+lidarr_sync = "True"
+plex_users = "Alyssa"
+worker_count = 5
+replace_existing = "True"
+seconds_interval = 0
+manual_playlists = "False"
+first_run = "False"
