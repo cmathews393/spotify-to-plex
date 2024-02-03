@@ -130,7 +130,7 @@ class Spotiplex:
 
             lidarr_config = {
                 "url": os.environ.get("LIDARR_IP", ""),
-                "api_key": input("LIDARR_TOKEN", ""),
+                "api_key": os.environ.get("LIDARR_TOKEN", ""),
             }
             write_config("lidarr", lidarr_config)
 
