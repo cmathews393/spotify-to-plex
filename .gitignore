@@ -6,3 +6,5 @@
 *.log
 *.pyc
 *pycache*
+config.toml
+
