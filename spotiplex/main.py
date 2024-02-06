@@ -13,12 +13,43 @@ class Spotiplex:
     def __init__(self):
         self.config = read_config("spotiplex")
         self.first_run = self.config.get("first_run")
-        if (
-            self.first_run is None
-            or self.first_run == "True"
-            or Spotiplex.is_running_in_docker()
-        ):
+
+        if Spotiplex.is_running_in_docker():
+            # Fetching configuration from environment variables if running in Docker
+            spotiplex_config = {
+                "lidarr_sync": os.environ.get("SPOTIPLEX_LIDARR_SYNC", "True"),
+                "plex_users": os.environ.get("USERS", ""),
+                "worker_count": int(os.environ.get("WORKERS", 1)),
+                "seconds_interval": int(os.environ.get("INTERVAL", 86400)),
+                "manual_playlists": os.environ.get(
+                    "SPOTIPLEX_MANUAL_PLAYLISTS", "False"
+                ),
+            }
+            write_config("spotiplex", spotiplex_config)
+
+            spotify_config = {
+                "client_id": os.environ.get("SPOTIFY_API_ID", ""),
+                "api_key": os.environ.get("SPOTIFY_API_KEY", ""),
+            }
+            write_config("spotify", spotify_config)
+
+            plex_config = {
+                "url": os.environ.get("PLEX_URL", ""),
+                "api_key": os.environ.get("PLEX_TOKEN", ""),
+                "replace": os.environ.get("REPLACE", "False"),
+            }
+            write_config("plex", plex_config)
+
+            lidarr_config = {
+                "url": os.environ.get("LIDARR_IP", ""),
+                "api_key": os.environ.get("LIDARR_TOKEN", ""),
+            }
+            write_config("lidarr", lidarr_config)
+
+            print("Configuration set from environment variables.")
+        elif self.first_run is None or self.first_run == "True":
             Spotiplex.configurator(self)
+        self.config = read_config("spotiplex")
         self.spotify_service = SpotifyService()
         self.plex_service = PlexService()
         self.lidarr_api = lapi()
@@ -66,7 +97,6 @@ class Spotiplex:
     def run(self):
         for user in self.user_list:
             self.process_for_user(user)
-
         if self.seconds_interval > 0:
             schedule.every(self.seconds_interval).seconds.do(self.run)
             while True:
@@ -102,84 +132,51 @@ class Spotiplex:
 
     def configurator(self):
         # Config for Spotiplex
-        if Spotiplex.is_running_in_docker():
-            # Fetching configuration from environment variables if running in Docker
-            spotiplex_config = {
-                "lidarr_sync": os.environ.get("SPOTIPLEX_LIDARR_SYNC", "True"),
-                "plex_users": os.environ.get("USERS", ""),
-                "worker_count": int(os.environ.get("WORKERS", 1)),
-                "seconds_interval": int(os.environ.get("INTERVAL", 86400)),
-                "manual_playlists": os.environ.get(
-                    "SPOTIPLEX_MANUAL_PLAYLISTS", "False"
-                ),
-            }
-            write_config("spotiplex", spotiplex_config)
 
-            spotify_config = {
-                "client_id": os.environ.get("SPOTIFY_API_ID", ""),
-                "api_key": os.environ.get("SPOTIFY_API_KEY", ""),
-            }
-            write_config("spotify", spotify_config)
+        print(
+            "Welcome to Spotiplex! It seems this is your first run of the application, please enter your configuration variables below. Press Enter to continue..."
+        )
+        spotiplex_config = {
+            "lidarr_sync": input("Enter Lidarr sync option (True/False): "),
+            "plex_users": input("Enter comma-separated Plex user names: "),
+            "worker_count": int(
+                input(
+                    "Enter the number of worker threads (Not recommened to exceed core count. 5 is usually a good value.): "
+                )
+            ),
+            "seconds_interval": int(
+                input(
+                    "Enter the interval in seconds for scheduling, set to 0 if you don't want the script to repeat: "
+                )
+            ),
+            "manual_playlists": input("Enter manual playlists (True/False): "),
+        }
 
-            plex_config = {
-                "url": os.environ.get("PLEX_URL", ""),
-                "api_key": os.environ.get("PLEX_TOKEN", ""),
-                "replace": os.environ.get("REPLACE", "False"),
-            }
-            write_config("plex", plex_config)
+        # Config for SpotifyService
+        spotify_config = {
+            "client_id": input("Enter Spotify client ID: "),
+            "api_key": input("Enter Spotify API key: "),
+        }
+        write_config("spotify", spotify_config)
 
-            lidarr_config = {
-                "url": os.environ.get("LIDARR_IP", ""),
-                "api_key": os.environ.get("LIDARR_TOKEN", ""),
-            }
-            write_config("lidarr", lidarr_config)
+        # Config for PlexService
+        plex_config = {
+            "url": input("Enter Plex server URL: "),
+            "api_key": input("Enter Plex API key: "),
+            "replace": input("Replace existing Plex data? (True/False): "),
+        }
+        write_config("plex", plex_config)
 
-            print("Configuration set from environment variables.")
-        else:
-            print(
-                "Welcome to Spotiplex! It seems this is your first run of the application, please enter your configuration variables below. Press Enter to continue..."
-            )
-            spotiplex_config = {
-                "lidarr_sync": input("Enter Lidarr sync option (True/False): "),
-                "plex_users": input("Enter comma-separated Plex user names: "),
-                "worker_count": int(
-                    input(
-                        "Enter the number of worker threads (Not recommened to exceed core count. 5 is usually a good value.): "
-                    )
-                ),
-                "seconds_interval": int(
-                    input(
-                        "Enter the interval in seconds for scheduling, set to 0 if you don't want the script to repeat: "
-                    )
-                ),
-                "manual_playlists": input("Enter manual playlists (True/False): "),
-            }
+        lidarr_config = {
+            "url": input("Enter Lidarr URL: "),
+            "api_key": input("Enter Lidarr API Key: "),
+        }
+        write_config("lidarr", lidarr_config)
 
-            # Config for SpotifyService
-            spotify_config = {
-                "client_id": input("Enter Spotify client ID: "),
-                "api_key": input("Enter Spotify API key: "),
-            }
-            write_config("spotify", spotify_config)
+        spotiplex_config["first_run"] = "False"
+        write_config("spotiplex", spotiplex_config)
 
-            # Config for PlexService
-            plex_config = {
-                "url": input("Enter Plex server URL: "),
-                "api_key": input("Enter Plex API key: "),
-                "replace": input("Replace existing Plex data? (True/False): "),
-            }
-            write_config("plex", plex_config)
-
-            lidarr_config = {
-                "url": input("Enter Lidarr URL: "),
-                "api_key": input("Enter Lidarr API Key: "),
-            }
-            write_config("lidarr", lidarr_config)
-
-            spotiplex_config["first_run"] = "False"
-            write_config("spotiplex", spotiplex_config)
-
-            print("Configuration complete!")
+        print("Configuration complete!")
 
 
 def main():
