@@ -1,83 +1,59 @@
 # Spotify To Plex (Spotiplex)
+
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/C0C2PUDV8)
 
-- [Spotify To Plex (Spotiplex)](#spotify-to-plex-spotiplex)
+## Table of Contents
+
 - [How To](#how-to)
-- [Latest Features:](#latest-features)
 - [Dependencies](#dependencies)
 - [Upcoming Planned Features](#upcoming-planned-features)
-- [Known Issues:](#known-issues)
-- [Disclaimer:](#disclaimer)
+- [Known Issues](#known-issues)
+- [Disclaimer](#disclaimer)
 
-Temporarily change-frozen, building a new app that implements similar functionality for Radarr, Sonarr, etc, using Trakt and IMDB lists or *arr tags. Will be implemented with a web interface from the start, so is naturally taking a bit more time.
-<a href=https://github.com/cmathews393/plex-playlist-manager>New app repo is here</a>
+**Note:** Temporarily change-frozen, building a new app that implements similar functionality for Radarr, Sonarr, etc, using Trakt and IMDB lists or *arr tags. Will be implemented with a web interface from the start, so is naturally taking a bit more time. [New app repo is here](https://github.com/cmathews393/plex-playlist-manager).
 
-# <h3>How To</h3>
+## How To
 
-<h2>Prerequisites</h2>
-1). Ensure you have Python 3 installed. Spotiplex is developed on 3.8.10, but may work on different versions, though this is unsupported.
-<br>
-2). Install plexapi, spotipy, and python-decouple ("pip install python-decouple plexapi spotipy")
+### Prerequisites
 
-<h2> Setup (Script version)</h2>
-1). Clone the repo
-<br>
-2). Rename default.env to .env
-<br>
-3). Configure settings for your environment
-<br>
-    a). Get Plex API key
-    <br>
-    b). Get Spotify ID and API key
-    <br>
-    c). Get Lidarr API key
-    <br>
-4). Run "main.py" from the "current-version" folder
+1. Ensure you have Python 3 installed (if not running docker)
+2. Ensure you have poetry installed
 
-<h2> Setup (Docker Version)</h2>
-Note: I've only tested on Linux, Docker version 24.0.5, build 24.0.5-0ubuntu1~22.04.1. Anything else is "unsupported" I guess, but if you have issues let me know, especially on Docker Desktop for Windows. I can't reliably test because I don't want to upgrade to Win11, but I can spin up a VM if needed
+### Setup (Script Version)
 
-1). `docker pull 0xchloe/spotiplex`  
-2). `touch spotiplex.env`  
-3). Copy the contents of default.env from this repo to your new .env file, and edit as needed  
-4). `docker run --env-file spotiplex.env 0xchloe/spotiplex`  
-5). Re-start container to re-sync. For obvious reasons, manual input is not supported for the container, so if you need to manually input playlist ID's and for whatever reason can't use your env, clone the repo instead  
+1. Clone the repo.
+2. Configure settings for your environment:
+   - Get Plex API key.
+   - Get Spotify ID and API key.
+   - Get Lidarr API key.
+3. Run with poetry (`cd spotiplex && poetry install`, `poetry run python main.py`)
+4. Follow CLI prompts
 
+### Setup (Docker Version)
 
+Note: Tested only on Linux, Docker version 24.0.5. Other environments are "unsupported", but issues can be reported.
 
-# <h4>Latest Features:</h4>
+1. `docker pull 0xchloe/spotiplex:latest`
+2. `touch spotiplex.env`
+3. Copy the contents of `default.env` from this repo to your new `.env` file, and edit as needed.
+4. `docker run --env-file spotiplex.env 0xchloe/spotiplex`
+5. Re-start the container to re-sync. Manual playlist syncing can be accomplished by including manual playlists in the .env file
 
-Multithreading added in the latest update! Previously an import from Lidarr with approx 35-45 playlists would take an hour or more. Multithreading cuts this down to 10 minutes or less in most cases. Working on an all-in-one binary as well. Creds and variables are available in an .env. The default.env provides 
+## Dependencies
 
-Primarily, this app has been redesigned around using Lidarr as the source for playlists to sync.
+Using [python-plexapi](https://github.com/pkkid/python-plexapi), [spotipy](https://github.com/spotipy-dev/spotipy), [rtoml](https://github.com/samuelcolvin/rtoml) , [schedule](https://github.com/dbader/schedule)
 
-Spotiplex is a simple Python app to import Spotify Playlists by ID or URL into Plex, automatically finding tracks in the playlist that are in your Plex library. It can import tracks from your Spotify playlists that are synced down to Lidarr, which you can use to automatically sort and rename music files that you have the legal right to distribute and/or maintain copies of. 
+## Upcoming Planned Features
 
-# <h4>Dependencies</h4>
-Using https://github.com/pkkid/python-plexapi, https://github.com/spotipy-dev/spotipy, and the requests library. 
+- Add to Plex-Playlist-Manager (See above)
+- Add fuzzy search to Plex
+- Troubleshoot Spotify API issues (see below)
 
-# <h3>Upcoming Planned Features</h3>
+## Known Issues
 
-See the <a href=https://trello.com/b/PGhCi2Ws/spotiplex-roadmap>Trello Board</a> for more details
+1. Some Spotify Playlists, especially auto-generated and non-public ones, may not be accessible via API, resulting in 404 errors.
+2. Occasional track errors in certain playlists. The script will continue and import the rest of the playlist, noting any issues.
 
-<br>
-1). Packaging an exe for easier Windows deployments
-<br>
-2). Webapp deployment option
-<br>
+## Disclaimer
 
-
-
-# <h3>Known Issues:</h3>
-<br>
-1). Some Spotify Playlists don't appear to be accessible via API. Specifically, auto-generated playlists that are not public I believe. I don't think there's a way around this, but if it appears in a list, and you get a 404 error, that's what's happening. If you figure out a way to make it import, submit a pull request and I'd be happy to merge it. 
-<br>
-<br>
-2). Some tracks error out on certain playlists. Unsure why, but the script should continue and import the rest of the playlist, and let you know which playlist + song had issues. Usually only one song per list, so very low priority. 
-
-<br>
-<br>
-<br>
-
-# Disclaimer: 
-I am not responsible for how you utilize this script, nor am I responsible for your usage of the Spotify API, in or outside of conjuction with this script. Please read the Spotify TOS and Spotify Developer TOS carefully. I am not, and have never been associated with or employed by Spotify, and this script is neither endorsed nor supported by Spotify. All uses of this script are at your own risk. Please buy the music you enjoy. 
+I am not responsible for how you utilize this script, nor am I responsible for your usage of the Spotify API, in or outside of conjunction with this script. Please read the Spotify TOS and Spotify Developer TOS carefully. This script is neither endorsed nor supported by Spotify. All uses of this script are at your own risk. Please buy the music you enjoy.
