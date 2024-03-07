@@ -53,8 +53,14 @@ class Spotiplex:
         self.lidarr_api = lapi()
 
         self.lidarr_sync = (self.config.get("lidarr_sync", "false")).lower()
-        self.plex_users = self.config.get("plex_users")
-        self.user_list = self.plex_users.split(",") if self.plex_users else []
+        if (
+            self.config.get("plex_users") != ""
+            and self.config.get("plex_users") is not None
+        ):
+            self.plex_users = self.config.get("plex_users")
+        else:
+            self.plex_users = None
+        self.user_list = self.plex_users.split(",") if self.plex_users else None
         self.worker_count = int(self.config.get("worker_count"))
         self.replace_existing = self.config.get("replace_existing")
         self.seconds_interval = int(self.config.get("seconds_interval"))
@@ -71,10 +77,13 @@ class Spotiplex:
             print(manual_playlists)
         self.sync_my_user = False
         currentuser = self.plex_service.plex.myPlexAccount().username.lower()
-
-        if currentuser in self.user_list:
-            self.user_list.remove(currentuser)
+        if not self.user_list:
             self.sync_my_user = True
+        else:
+            if currentuser in self.user_list:
+                self.user_list.remove(currentuser)
+                print(self.user_list)
+                self.sync_my_user = True
 
     def process_for_user(self, user):
         if user:
