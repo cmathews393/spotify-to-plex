@@ -77,13 +77,14 @@ class Spotiplex:
             print(manual_playlists)
         self.sync_my_user = False
         currentuser = self.plex_service.plex.myPlexAccount().username.lower()
+        print(currentuser)
+        if currentuser in self.user_list:
+            print(currentuser)
+            self.user_list.remove(currentuser)
+            print(self.user_list)
+            self.sync_my_user = True
         if not self.user_list:
             self.sync_my_user = True
-        else:
-            if currentuser in self.user_list:
-                self.user_list.remove(currentuser)
-                print(self.user_list)
-                self.sync_my_user = True
 
     def process_for_user(self, user):
         if user:
@@ -125,6 +126,7 @@ class Spotiplex:
 
     def run(self):
         self.plex_service = PlexService()
+        print(self.sync_my_user)
         if self.sync_my_user:
             self.process_for_user(None)
         for user in self.user_list:
