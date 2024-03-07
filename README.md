@@ -1,7 +1,5 @@
 # Spotify To Plex (Spotiplex)
 
-[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/C0C2PUDV8)
-
 ## Table of Contents
 
 - [How To](#how-to)
