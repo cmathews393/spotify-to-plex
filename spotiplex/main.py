@@ -100,7 +100,19 @@ class Spotiplex:
                     print(f"Thread resulted in an error: {e}")
 
     def is_running_in_docker():
-        return os.path.exists("/.dockerenv")
+        # Check for the .dockerenv file
+        if os.path.exists("/.dockerenv"):
+            return True
+
+        # Check for container-related entries in /proc/1/cgroup
+        try:
+            with open("/proc/1/cgroup", "rt") as f:
+                if any("docker" in line or "containerd" in line for line in f):
+                    return True
+        except Exception:
+            pass
+
+        return False
 
     def run(self):
         self.plex_service = PlexService()
