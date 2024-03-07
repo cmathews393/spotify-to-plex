@@ -21,9 +21,7 @@ class Spotiplex:
                 "plex_users": os.environ.get("USERS", ""),
                 "worker_count": int(os.environ.get("WORKERS", 1)),
                 "seconds_interval": int(os.environ.get("INTERVAL", 86400)),
-                "manual_playlists": os.environ.get(
-                    "SPOTIPLEX_MANUAL_PLAYLISTS", "False"
-                ),
+                "manual_sync": os.environ.get("SPOTIPLEX_MANUAL_PLAYLISTS", "False"),
             }
             write_config("spotiplex", spotiplex_config)
 
@@ -63,10 +61,20 @@ class Spotiplex:
         if self.lidarr_sync == "true":
             self.sync_lists = self.lidarr_api.get_lidarr_playlists()
         else:
-            self.sync_lists = self.config.get("manual_playlists")
+            self.sync_lists = []
+        manual_playlists = self.config.get("manual_playlists", "")
+        if manual_playlists:
+            # If manual_playlists is a string of items separated by commas, split it into a list
+            manual_playlists_list = manual_playlists.split(",")
+            # Then extend self.sync_lists with this list
+            self.sync_lists.extend(manual_playlists_list)
+            print(manual_playlists)
+        self.sync_my_user = False
         currentuser = self.plex_service.plex.myPlexAccount().username.lower()
+
         if currentuser in self.user_list:
             self.user_list.remove(currentuser)
+            self.sync_my_user = True
 
     def process_for_user(self, user):
         if user:
@@ -95,6 +103,9 @@ class Spotiplex:
         return os.path.exists("/.dockerenv")
 
     def run(self):
+        self.plex_service = PlexService()
+        if self.sync_my_user:
+            self.process_for_user(None)
         for user in self.user_list:
             self.process_for_user(user)
         if self.seconds_interval > 0:
@@ -103,32 +114,32 @@ class Spotiplex:
                 schedule.run_pending()
                 time.sleep(1)
 
-    def extract_playlist_id(playlist_url):  # parse playlist ID from URL if applicable
+    def extract_playlist_id(playlist_url):
+        # Check and extract the part after "?si="
         if "?si=" in playlist_url:
             playlist_url = playlist_url.split("?si=")[0]
 
-        return (
-            playlist_url.split("playlist/")[1]
-            if "playlist/" in playlist_url
-            else playlist_url
-        )
+        # Check and extract the part after "playlist/"
+        if "playlist/" in playlist_url:
+            playlist_url = playlist_url.split("playlist/")[1]
+
+        return playlist_url
 
     def process_playlist(
-        self, playlists, plex_service, spotify_service, replace_existing
+        self, playlist, plex_service, spotify_service, replace_existing
     ):
-        for playlist in playlists:
-            try:
-                playlist_id = Spotiplex.extract_playlist_id(playlist)
-                print(playlist_id)
-                playlist_name = spotify_service.get_playlist_name(playlist_id)
-                spotify_tracks = spotify_service.get_playlist_tracks(playlist_id)
-                plex_tracks = plex_service.check_tracks_in_plex(spotify_tracks)
-                plex_service.create_or_update_playlist(
-                    playlist_name, playlist_id, plex_tracks
-                )
-                print(f"Processed playlist '{playlist_name}'.")
-            except Exception as e:
-                print(f"Error processing playlist '{playlist}':", e)
+        try:
+            playlist_id = Spotiplex.extract_playlist_id(playlist)
+            print(playlist_id)
+            playlist_name = spotify_service.get_playlist_name(playlist_id)
+            spotify_tracks = spotify_service.get_playlist_tracks(playlist_id)
+            plex_tracks = plex_service.check_tracks_in_plex(spotify_tracks)
+            plex_service.create_or_update_playlist(
+                playlist_name, playlist_id, plex_tracks
+            )
+            print(f"Processed playlist '{playlist_name}'.")
+        except Exception as e:
+            print(f"Error processing playlist '{playlist}':", e)
 
     def configurator(self):
         # Config for Spotiplex

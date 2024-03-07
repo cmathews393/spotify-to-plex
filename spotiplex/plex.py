@@ -40,9 +40,7 @@ class PlexService:
 
         return plex_tracks
 
-    def create_or_update_playlist(
-        self, playlist_name, playlist_id, tracks
-    ):
+    def create_or_update_playlist(self, playlist_name, playlist_id, tracks):
         existing_playlist = self.find_playlist_by_name(playlist_name)
         if existing_playlist:
             if self.replace:
@@ -68,3 +66,15 @@ class PlexService:
         except Exception as e:
             print(f"Error creating playlist {playlist_name}: {e}")
             return None
+
+    def list_active_streams(self):
+        """Lists all users currently playing media and the media they are playing."""
+        sessions = self.plex.sessions()
+        if sessions:
+            for session in sessions:
+                user = session.usernames[0] if session.usernames else "Unknown User"
+                title = session.title
+                # Depending on your requirement, you might also want to include session.type (movie, episode, etc.)
+                print(f"User '{user}' is playing '{title}'")
+        else:
+            print("No active streams.")
