@@ -25,20 +25,16 @@ class LidarrAPI:
             return None
 
     def get_lidarr_playlists(self):
-        result = self.make_request(
-            endpoint_path="/api/v1/importlist"
-        )  # Specify the actual endpoint path for Lidarr API
+        result = self.make_request(endpoint_path="/api/v1/importlist")
         playlists = []
 
         if result:
             for entry in result:
                 if entry.get("listType") == "spotify":
-                    playlists.extend(
-                        [
-                            field.get("value", [])
-                            for field in entry.get("fields", [])
-                            if field.get("name") == "playlistIds"
-                        ]
-                    )
+                    for field in entry.get("fields", []):
+                        if field.get("name") == "playlistIds":
+                            playlist_ids = field.get("value", [])
+                            if isinstance(playlist_ids, list):
+                                playlists.extend(playlist_ids)  # Flattening the list
 
         return playlists

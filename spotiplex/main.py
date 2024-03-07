@@ -74,14 +74,10 @@ class Spotiplex:
             manual_playlists_list = manual_playlists.split(",")
             # Then extend self.sync_lists with this list
             self.sync_lists.extend(manual_playlists_list)
-            print(manual_playlists)
         self.sync_my_user = False
         currentuser = self.plex_service.plex.myPlexAccount().username.lower()
-        print(currentuser)
-        if currentuser in self.user_list:
-            print(currentuser)
+        if self.user_list and currentuser in self.user_list:
             self.user_list.remove(currentuser)
-            print(self.user_list)
             self.sync_my_user = True
         if not self.user_list:
             self.sync_my_user = True
