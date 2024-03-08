@@ -1,7 +1,7 @@
-from plex import PlexService
-from spotify import SpotifyService
-from lidarr import LidarrAPI as lapi
-from confighandler import read_config, write_config
+from .plex import PlexService
+from .spotify import SpotifyService
+from .lidarr import LidarrAPI as lapi
+from .confighandler import read_config, write_config
 import concurrent.futures
 from concurrent.futures import ThreadPoolExecutor
 import schedule
@@ -64,6 +64,7 @@ class Spotiplex:
         self.worker_count = int(self.config.get("worker_count"))
         self.replace_existing = self.config.get("replace_existing")
         self.seconds_interval = int(self.config.get("seconds_interval"))
+
         if self.lidarr_sync == "true":
             self.sync_lists = self.lidarr_api.get_lidarr_playlists()
         else:

@@ -12,6 +12,7 @@ PlexAPI = "^4.15.7"
 requests = "^2.31.0"
 rtoml = "^0.10.0"
 schedule = "^1.2.1"
+flask = "^3.0.2"
 
 
 [build-system]

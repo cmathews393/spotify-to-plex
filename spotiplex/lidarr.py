@@ -1,5 +1,5 @@
 import json
-from confighandler import read_config
+from .confighandler import read_config
 import requests
 # test
 

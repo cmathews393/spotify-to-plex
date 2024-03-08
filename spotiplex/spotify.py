@@ -1,7 +1,7 @@
 import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
 from datetime import date
-from confighandler import read_config
+from .confighandler import read_config
 
 
 class SpotifyService:

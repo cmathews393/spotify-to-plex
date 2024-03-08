@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Spotiplex Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <h1 class="dashboard-title">Spotiplex Dashboard</h1>
+        <div class="service-status">
+            <h2>Service Status</h2>
+            <p>Spotify: <span
+                    class="{{ 'status-indicator ' + ('online' if data.service_status.spotify_connected else 'offline') }}">{{
+                    'Connected' if data.service_status.spotify_connected else 'Disconnected' }}</span></p>
+            <p>Plex: <span
+                    class="{{ 'status-indicator ' + ('online' if data.service_status.plex_connected else 'offline') }}">{{
+                    'Connected' if data.service_status.plex_connected else 'Disconnected' }}</span></p>
+            <p>Lidarr: <span
+                    class="{{ 'status-indicator ' + ('online' if data.service_status.lidarr_connected else 'offline') }}">{{
+                    'Connected' if data.service_status.lidarr_connected else 'Disconnected' }}</span></p>
+        </div>
+        <div class="last-sync">
+            <h2>Last Sync</h2>
+            <p>Date and Time: {{ data.last_sync }}</p>
+            <p>Status: {{ data.sync_status }}</p>
+            {% if data.sync_errors %}
+            <div class="sync-errors">
+                <h3>Sync Errors</h3>
+                <ul>
+                    {% for error in data.sync_errors %}
+                    <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+        </div>
+        <div class="scheduled-sync">
+            <h2>Scheduled Sync</h2>
+            <p>Enabled: {{ 'Yes' if data.scheduled_sync else 'No' }}</p>
+            <p>Next Sync Time: {{ data.next_sync_time }}</p>
+        </div>
+    </div>
+</body>
+
+</html>
