@@ -1,0 +1,85 @@
+{% extends "base.html.j2" %}
+
+{% block title %}Settings - Spotiplex{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    {% for category, message in messages %}
+    <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+        {{ message }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+    <h1>Settings</h1>
+    <form method="POST">
+        <div class="form-group">
+            <label for="spotifyClientId">Spotify Client ID</label>
+            <input type="text" class="form-control" id="spotifyClientId" name="spotifyClientId"
+                placeholder="Enter Spotify Client ID" value="{{ spotify_config.get('client_id', '') }}">
+        </div>
+        <div class="form-group">
+            <label for="spotifyAPIKey">Spotify API Key</label>
+            <input type="text" class="form-control" id="spotifyAPIKey" name="spotifyAPIKey"
+                placeholder="Enter Spotify API Key" value="{{ spotify_config.get('api_key', '') }}">
+        </div>
+        <div class="form-group">
+            <label for="plexURL">Plex Server URL</label>
+            <input type="text" class="form-control" id="plexURL" name="plexURL" placeholder="Enter Plex URL"
+                value="{{ plex_config.get('url', '') }}">
+        </div>
+        <div class="form-group">
+            <label for="plexApiKey">Plex API Key</label>
+            <input type="text" class="form-control" id="plexApiKey" name="plexApiKey" placeholder="Enter Plex API Key"
+                value="{{ plex_config.get('api_key', '') }}">
+        </div>
+        <div class="form-group">
+            <label for="lidarrUrl">Lidarr URL</label>
+            <input type="url" class="form-control" id="lidarrUrl" name="lidarrUrl" placeholder="Enter Lidarr URL"
+                value="{{ lidarr_config.get('url', '') }}">
+        </div>
+        <div class="form-group">
+            <label for="lidarrAPIKey">Lidarr API Key</label>
+            <input type="text" class="form-control" id="lidarrAPIKey" name="lidarrAPIKey"
+                placeholder="Enter Lidarr API Key" value="{{ lidarr_config.get('api_key', '') }}">
+        </div>
+        <div class="form-group form-check">
+            <input type="checkbox" class="form-check-input" id="lidarrSync" name="lidarrSync" value="True" {{ 'checked'
+                if spotiplex_config.get('lidarr_sync', 'False' )=='True' else '' }}>
+            <label class="form-check-label" for="lidarrSync">Lidarr Sync</label>
+        </div>
+
+        <div class="form-group">
+            <label for="plexUsers">Plex Users</label>
+            <input type="text" class="form-control" id="plexUsers" name="plexUsers"
+                placeholder="Enter comma-separated Plex user names"
+                value="{{ spotiplex_config.get('plex_users', '') }}">
+        </div>
+        <div class="form-group">
+            <label for="workerCount">Worker Count</label>
+            <input type="number" class="form-control" id="workerCount" name="workerCount"
+                placeholder="Number of worker threads" value="{{ spotiplex_config.get('worker_count', '') }}">
+        </div>
+        <div class="form-group">
+            <label for="secondsInterval">Seconds Interval</label>
+            <input type="number" class="form-control" id="secondsInterval" name="secondsInterval"
+                placeholder="Interval in seconds for scheduling"
+                value="{{ spotiplex_config.get('seconds_interval', '') }}">
+        </div>
+        <div class="form-group">
+            <label for="manualPlaylists">Manual Playlists</label>
+            <input type="text" class="form-control" id="manualPlaylists" name="manualPlaylists"
+                placeholder="Comma-separated Spotify playlist URLs"
+                value="{{ spotiplex_config.get('manual_playlists', '') }}">
+        </div>
+        <div class="form-group text-center">
+            <button type="submit" class="btn btn-primary">Save Changes</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

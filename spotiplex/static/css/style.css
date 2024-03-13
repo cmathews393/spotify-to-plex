@@ -6,7 +6,7 @@ body {
     padding: 0;
 }
 
-.dashboard-container {
+.dashboard-container, .playlist-container, .settings-container {
     max-width: 800px;
     margin: auto;
     padding: 20px;
@@ -14,25 +14,28 @@ body {
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     margin-top: 20px;
+    margin-bottom: 20px
 }
 
-.dashboard-title {
+
+
+.dashboard-title, .playlist-title, .settings-title {
     color: #2C3E50;
     text-align: center;
     margin-bottom: 40px;
 }
 
-.service-status, .last-sync, .scheduled-sync {
+.service-status, .last-sync, .scheduled-sync, .playlist-info, .tracks {
     margin-bottom: 20px;
 }
 
-.service-status h2, .last-sync h2, .scheduled-sync h2 {
+.service-status h2, .last-sync h2, .scheduled-sync h2, .playlist-info h2, .tracks h2 {
     color: #34495E;
     border-bottom: 2px solid #ECF0F1;
     padding-bottom: 10px;
 }
 
-.status-indicator {
+.status-indicator, .online, .offline {
     font-weight: bold;
 }
 
@@ -44,24 +47,36 @@ body {
     color: #C0392B;
 }
 
-.sync-errors h3 {
+.sync-errors h3, .track-errors h3 {
     color: #E74C3C;
 }
 
-.sync-errors ul {
+.sync-errors ul, .track-errors ul, .tracks ul {
     padding-left: 20px;
+    list-style-type: none; /* Remove list item dots */
 }
 
-.sync-errors li {
+.sync-errors li, .track-errors li {
     color: #C0392B;
 }
 
-/* Other styles remain the same */
+/* General styles remain the same */
 
-.online {
-    color: #27AE60;
+.tracks li {
+    margin-bottom: 5px; /* Add some space between list items */
 }
 
-.offline {
-    color: #C0392B;
+.track-name {
+    color: #2980B9; /* A distinct color for the track name */
+    font-weight: bold; /* Make track name bold */
+}
+
+.by-text {
+    color: #7f8c8d; /* A subtle color for the "by" text */
+    margin: 0 5px; /* Add some space around the "by" text */
+}
+
+.artist-name {
+    color: #be5cff; /* A distinct color for the artist name */
+    font-style: italic; /* Italicize artist name for differentiation */
 }

@@ -1,13 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html.j2" %}
 
-<head>
-    <meta charset="UTF-8">
-    <title>Spotiplex Dashboard</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-</head>
-
-<body>
+{% block content%}
     <div class="dashboard-container">
         <h1 class="dashboard-title">Spotiplex Dashboard</h1>
         <div class="service-status">
@@ -43,6 +36,4 @@
             <p>Next Sync Time: {{ data.next_sync_time }}</p>
         </div>
     </div>
-</body>
-
-</html>
+{%endblock%}

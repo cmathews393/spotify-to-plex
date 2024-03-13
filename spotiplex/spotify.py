@@ -16,6 +16,34 @@ class SpotifyService:
             client_id=self.client_id, client_secret=self.client_secret
         )
         return spotipy.Spotify(auth_manager=auth_manager)
+    
+    def get_playlist_data(self, playlist_id):
+        playlist = self.sp.playlist(playlist_id)
+    
+    # Simplify the data structure for the example
+        simplified_playlist = {
+            "name": playlist['name'],
+            "description": playlist['description'],
+            "external_urls": playlist['external_urls'],
+            "followers": playlist['followers']['total'],
+            "images": playlist['images'],
+            "tracks": {
+                "total": playlist['tracks']['total'],
+                "items": [{
+                    "added_at": item['added_at'],
+                    "track": {
+                        "name": item['track']['name'],
+                        "album": item['track']['album']['name'],
+                        "artists": [artist['name'] for artist in item['track']['artists']],
+                        "external_urls": item['track']['external_urls'],
+                        "preview_url": item['track']['preview_url']
+                    }
+                } for item in playlist['tracks']['items']]
+            }
+        }
+        
+        return simplified_playlist
+
 
     def get_playlist_tracks(self, playlist_id):
         tracks = []

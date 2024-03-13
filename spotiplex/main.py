@@ -150,7 +150,6 @@ class Spotiplex:
     ):
         try:
             playlist_id = Spotiplex.extract_playlist_id(playlist)
-            print(playlist_id)
             playlist_name = spotify_service.get_playlist_name(playlist_id)
             spotify_tracks = spotify_service.get_playlist_tracks(playlist_id)
             plex_tracks = plex_service.check_tracks_in_plex(spotify_tracks)
@@ -161,6 +160,19 @@ class Spotiplex:
         except Exception as e:
             print(f"Error processing playlist '{playlist}':", e)
 
+    def get_data_for_playlist(self):
+        playlists_data = {}
+        for playlist in self.sync_lists:
+            try:
+                playlist_id = Spotiplex.extract_playlist_id(playlist)
+                playlist_name = self.spotify_service.get_playlist_name(playlist_id)
+                spotify_tracks = self.spotify_service.get_playlist_tracks(playlist_id)
+                playlists_data[playlist_name] = spotify_tracks
+            except Exception as e:
+                print(f"Error processing playlist {playlist}: {e}")
+                # Optionally, handle the error (e.g., by logging or skipping the problematic playlist)
+                continue
+        return playlists_data
     def configurator(self):
         # Config for Spotiplex
 

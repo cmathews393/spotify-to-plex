@@ -8,8 +8,10 @@ class functions:
     def run_sync(self):
         return
 
-    def list_songs(self):
-        return
+    def get_playlists_data(self):
+        spotiplex = Spotiplex()
+        playlists = spotiplex.get_data_for_playlist()
+        return playlists
 
     def check_license(self):
         return
