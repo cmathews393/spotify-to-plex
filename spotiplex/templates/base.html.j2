@@ -28,6 +28,10 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/playlists">Playlists</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/support">Support Us</a>
+                </li>
+                
             </ul>
         </div>
     </nav>
@@ -49,7 +53,21 @@
         <br>
         Contact us: <a href="mailto:support@catastrophesoftware.com">support@catastrophesoftware.com</a>
         <br>
+        <a href="/support">Support Spotiplex</a>
     </div>
 </footer>
+
+{% if request.path != "/support" %}
+    <script src='https://storage.ko-fi.com/cdn/scripts/overlay-widget.js'></script>
+<script>
+  kofiWidgetOverlay.draw('0xchloe', {
+    'type': 'floating-chat',
+    'floating-chat.donateButton.text': 'Tip Me',
+    'floating-chat.donateButton.background-color': '#794bc4',
+    'floating-chat.donateButton.text-color': '#fff'
+  });
+</script>
+{% endif %}
+
 
 </html>

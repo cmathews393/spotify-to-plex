@@ -73,6 +73,9 @@ def playlists_view():
     playlists = web_functions.get_playlists_data()
     return render_template("playlists.html.j2", playlists=playlists)
 
+@app.route("/support")
+def support_us():
+    return render_template("support.html.j2")
 
 # @app.route('')
 

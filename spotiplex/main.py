@@ -52,7 +52,7 @@ class Spotiplex:
         self.plex_service = PlexService()
         self.lidarr_api = lapi()
 
-        self.lidarr_sync = (self.config.get("lidarr_sync", "false")).lower()
+        self.lidarr_sync = self.config.get("lidarr_sync", False)
         if (
             self.config.get("plex_users") != ""
             and self.config.get("plex_users") is not None
@@ -65,7 +65,7 @@ class Spotiplex:
         self.replace_existing = self.config.get("replace_existing")
         self.seconds_interval = int(self.config.get("seconds_interval"))
 
-        if self.lidarr_sync == "true":
+        if self.lidarr_sync is True:
             self.sync_lists = self.lidarr_api.get_lidarr_playlists()
         else:
             self.sync_lists = []
@@ -161,18 +161,41 @@ class Spotiplex:
             print(f"Error processing playlist '{playlist}':", e)
 
     def get_data_for_playlist(self):
-        playlists_data = {}
-        for playlist in self.sync_lists:
+        def fetch_playlist_data(playlist):
             try:
                 playlist_id = Spotiplex.extract_playlist_id(playlist)
                 playlist_name = self.spotify_service.get_playlist_name(playlist_id)
+                if playlist_name is None:
+                    playlist_name = f"Error processing playlist ID {playlist_id}"
                 spotify_tracks = self.spotify_service.get_playlist_tracks(playlist_id)
-                playlists_data[playlist_name] = spotify_tracks
+                return playlist_name, spotify_tracks
             except Exception as e:
                 print(f"Error processing playlist {playlist}: {e}")
-                # Optionally, handle the error (e.g., by logging or skipping the problematic playlist)
-                continue
+                # Return a tuple indicating an error with the playlist to handle later
+                return f"Error processing playlist ID {playlist_id}", None
+
+        playlists_data = {}
+        with ThreadPoolExecutor(max_workers=self.worker_count) as executor:
+            # Schedule the fetch_playlist_data function to be called for each playlist
+            future_to_playlist = {
+                executor.submit(fetch_playlist_data, playlist): playlist
+                for playlist in self.sync_lists
+            }
+
+            for future in concurrent.futures.as_completed(future_to_playlist):
+                playlist = future_to_playlist[future]
+                try:
+                    playlist_name, spotify_tracks = future.result()
+                    if (
+                        spotify_tracks is not None
+                    ):  # Ensure there was no error fetching data
+                        playlists_data[playlist_name] = spotify_tracks
+                except Exception as e:
+                    print(f"Exception processing playlist {playlist}: {e}")
+                    continue
+
         return playlists_data
+
     def configurator(self):
         # Config for Spotiplex
 

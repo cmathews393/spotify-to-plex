@@ -1,7 +1,18 @@
 # Spotify To Plex (Spotiplex)
 
-[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/C0C2PUDV8)
-
+<div style="text-align: center;">
+   <img alt="GitHub Actions Workflow Status" src="https://img.shields.io/github/actions/workflow/status/cmathews393/spotify-to-plex/docker-image.yml">
+   <img alt="Docker Pulls" src="https://img.shields.io/docker/pulls/0xchloe/spotiplex">
+   <img alt="GitHub Sponsors" src="https://img.shields.io/github/sponsors/cmathews393">
+  <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/cmathews393/spotify-to-plex">
+  <img src="https://img.shields.io/liberapay/receives/0xChloe.svg?logo=liberapay">
+</div>
+<div style="text-align: center;">
+  <a href="https://ko-fi.com/C0C2PUDV8">
+    <img src="https://ko-fi.com/img/githubbutton_sm.svg" alt="ko-fi" style="margin: 5px;">
+  </a>
+  
+</div>
 ## Table of Contents
 
 - [How To](#how-to)
@@ -19,7 +30,7 @@
 1. Ensure you have Python 3 installed (if not running docker)
 2. Ensure you have poetry installed
 
-### Setup (Script Version)
+### Setup (Script Version - Not Recommended)
 
 1. Clone the repo.
 2. Configure settings for your environment:

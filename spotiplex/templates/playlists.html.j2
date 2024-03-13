@@ -3,35 +3,59 @@
 {% block title %}Playlists - Spotiplex{% endblock %}
 
 {% block content %}
+<script>
+    var startTime = new Date();
+</script>
+
 <div class="container mt-4">
     <h1>Playlists</h1>
     {% for playlist_name, tracks in playlists.items() %}
-        <div class="card mt-3">
-            <div class="card-header" id="heading{{ loop.index }}">
-                <h2 class="mb-0">
-                    <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse{{ loop.index }}" aria-expanded="true" aria-controls="collapse{{ loop.index }}">
-                        {{ playlist_name }}
-                    </button>
-                </h2>
-            </div>
+    <div class="card mt-3">
+        <div class="card-header" id="heading{{ loop.index }}">
+            <h2 class="mb-0">
+                {# Apply red color to playlist name if it contains an error #}
+                {% if "Error processing playlist" in playlist_name %}
+                <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
+                    data-target="#collapse{{ loop.index }}" aria-expanded="true"
+                    aria-controls="collapse{{ loop.index }}" style="color: red;">
+                    {{ playlist_name }}
+                </button>
+                {% else %}
+                <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
+                    data-target="#collapse{{ loop.index }}" aria-expanded="true"
+                    aria-controls="collapse{{ loop.index }}">
+                    {{ playlist_name }}
+                </button>
+                {% endif %}
+            </h2>
+        </div>
 
-            <div id="collapse{{ loop.index }}" class="collapse" aria-labelledby="heading{{ loop.index }}">
-                <div class="card-body">
-                    <div class="tracks">
-                        <h3>Tracks</h3>
-                        <ul>
-                            {% for track in tracks %}
-                                    <li>
-                                        <span class="track-name">{{ track[0] }}</span>
-                                        <span class="by-text">by</span>
-                                        <span class="artist-name">{{ track[1] }}</span>
-                                    </li>
-                            {% endfor %}
-                        </ul>
-                    </div>
+        {# Only populate tracks if playlist_name does not contain an error #}
+        {% if "Error processing playlist" not in playlist_name %}
+        <div id="collapse{{ loop.index }}" class="collapse" aria-labelledby="heading{{ loop.index }}">
+            <div class="card-body">
+                <div class="tracks">
+                    <h3>Tracks</h3>
+                    <ul>
+                        {% for track in tracks %}
+                        <li>
+                            <span class="track-name">{{ track[0] }}</span>
+                            <span class="by-text">by</span>
+                            <span class="artist-name">{{ track[1] }}</span>
+                        </li>
+                        {% endfor %}
+                    </ul>
                 </div>
             </div>
         </div>
+        {% else %}
+
+        {% endif %}
+    </div>
     {% endfor %}
+    
 </div>
+
+
+
 {% endblock %}

@@ -80,3 +80,8 @@ body {
     color: #be5cff; /* A distinct color for the artist name */
     font-style: italic; /* Italicize artist name for differentiation */
 }
+
+.playlist-error {
+    color: red;
+    font-style: bold;
+}
