@@ -63,15 +63,25 @@ class Spotiplex:
         if self.lidarr_sync == "true":
             self.sync_lists = self.lidarr_api.get_lidarr_playlists()
         else:
+            # This should be an array of arrays to be run by multiple 'threads':
+            # For example: [["playlist1"],["playlist2"],["playlist3","playlist4"]]
             self.sync_lists = self.config.get("manual_playlists")
-        currentuser = self.plex_service.plex.myPlexAccount().username.lower()
-        if currentuser in self.user_list:
-            self.user_list.remove(currentuser)
+        print(f"Attempting to run for {self.sync_lists}")
+        self.default_user = self.plex_service.plex.myPlexAccount().username
+
+        # If the the user list provided is empty, add the default user from the token
+        if not self.user_list or len(self.user_list) == 0:
+            self.user_list.append(self.default_user)
 
     def process_for_user(self, user):
-        if user:
-            self.plex_service.plex = self.plex_service.plex.switchUser(user)
+        print(f"processing for user {user}")
+        if user == self.default_user:
+            self.plex_service.plex = self.plex_service.plex
             print(f"Processing playlists for user: {user}")
+            print("User matches credentials provided, defaulting.")
+        else:
+            print(f"Attempting to switch to user {user}")
+            self.plex_service.plex = self.plex_service.plex.switchUser(user)
 
         with ThreadPoolExecutor(max_workers=self.worker_count) as executor:
             futures = [
