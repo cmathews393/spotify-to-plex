@@ -16,6 +16,7 @@
 
 1. Ensure you have Python 3 installed (if not running docker)
 2. Ensure you have poetry installed
+3. Ensure you have a Spotify api key [from here](https://developer.spotify.com/documentation/web-api/tutorials/getting-started)
 
 ### Setup (Script Version)
 
