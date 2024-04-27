@@ -1,9 +1,10 @@
-from flask import Flask, render_template, request, redirect, url_for, flash
+from flask import Flask, render_template, request, redirect, url_for, flash, jsonify
 from .web_ui import functions
 from .confighandler import read_config, write_config
 import os
 
-app = Flask(__name__)
+
+app = Flask(__name__, static_url_path='/static')
 
 web_functions = functions()
 
@@ -66,6 +67,54 @@ def settings():
         lidarr_config=lidarr_config,
         spotiplex_config=spotiplex_config,
     )
+
+
+def update_manual_match(track_element_id, match_id):
+    # Logic to update your data storage with the manual match
+    # This function should update the match so that future processing uses this information
+    print(f"Updating manual match for {track_element_id} with {match_id}")
+    return True
+
+@app.route('/manual-match', methods=['POST'])
+def manual_match():
+    matches_json = web_functions.man_match()
+    return jsonify(matches_json)
+
+@app.route('/confirm-match', methods=['POST'])
+def confirm_match():
+    data = request.json  # Get the JSON data sent with the POST request
+    track_element_id = data.get('trackElementId')
+    selected_match_id = data.get('selectedMatchId')
+
+    if not track_element_id or not selected_match_id:
+        # Missing data, return an error
+        return jsonify({"error": "Missing trackElementId or selectedMatchId"}), 400
+
+    # Call the function to update the match with the provided IDs
+    if update_manual_match(track_element_id, selected_match_id):
+        return jsonify({"success": True}), 200
+    else:
+        # If updating the match fails for some reason
+        return jsonify({"error": "Failed to update manual match"}), 500
+
+@app.route('/update-manual-match', methods=['POST'])
+def update_manual_match():
+    data = request.json
+    track_element_id = data.get('trackElementId')
+    selected_match_id = data.get('selectedMatchId')
+
+    # Here you would convert selected_match_id into track_name and artist_name
+    # For this example, let's assume selected_match_id contains both separated by a delimiter
+    track_name, artist_name = selected_match_id.split('|', 1)
+
+    # Now, assuming man_match can also handle updating a match (or you have a similar function for this)
+    success = Spotiplex.PlexService().update_match(track_name, artist_name)
+
+    if success:
+        return jsonify({"success": True, "message": "Manual match updated successfully."}), 200
+    else:
+        return jsonify({"success": False, "message": "Failed to update manual match."}), 500
+
 
 
 @app.route("/playlists")

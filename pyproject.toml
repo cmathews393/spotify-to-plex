@@ -13,6 +13,8 @@ requests = "^2.31.0"
 rtoml = "^0.10.0"
 schedule = "^1.2.1"
 flask = "^3.0.2"
+levenshtein = "^0.25.0"
+fuzzywuzzy = "^0.18.0"
 
 
 [build-system]

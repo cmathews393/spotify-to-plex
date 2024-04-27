@@ -168,15 +168,19 @@ class Spotiplex:
                 if playlist_name is None:
                     playlist_name = f"Error processing playlist ID {playlist_id}"
                 spotify_tracks = self.spotify_service.get_playlist_tracks(playlist_id)
-                return playlist_name, spotify_tracks
+                track_statuses = self.plex_service.exists_in_plex(
+                    spotify_tracks
+                )  # Updated method call
+                return (
+                    playlist_name,
+                    track_statuses,
+                )  # Return track_statuses instead of spotify_tracks
             except Exception as e:
                 print(f"Error processing playlist {playlist}: {e}")
-                # Return a tuple indicating an error with the playlist to handle later
                 return f"Error processing playlist ID {playlist_id}", None
 
         playlists_data = {}
         with ThreadPoolExecutor(max_workers=self.worker_count) as executor:
-            # Schedule the fetch_playlist_data function to be called for each playlist
             future_to_playlist = {
                 executor.submit(fetch_playlist_data, playlist): playlist
                 for playlist in self.sync_lists
@@ -185,11 +189,14 @@ class Spotiplex:
             for future in concurrent.futures.as_completed(future_to_playlist):
                 playlist = future_to_playlist[future]
                 try:
-                    playlist_name, spotify_tracks = future.result()
+                    playlist_name, track_statuses = (
+                        future.result()
+                    )  # Use track_statuses here
                     if (
-                        spotify_tracks is not None
-                    ):  # Ensure there was no error fetching data
-                        playlists_data[playlist_name] = spotify_tracks
+                        track_statuses is not None
+                    ):  # Ensure data was fetched successfully
+                        # Store track_statuses directly as it already includes both Spotify data and Plex presence
+                        playlists_data[playlist_name] = track_statuses
                 except Exception as e:
                     print(f"Exception processing playlist {playlist}: {e}")
                     continue

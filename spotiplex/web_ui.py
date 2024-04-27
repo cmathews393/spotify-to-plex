@@ -1,11 +1,15 @@
 from .main import Spotiplex
-
+from flask import request
+import datetime
 
 class functions:
     def __init__(self):
         self.running = True
+        self.sync_started = None
+        self.sync_status = "Unknown"
 
     def run_sync(self):
+        self.sync_started = datetime.now()
         return
 
     def get_playlists_data(self):
@@ -15,18 +19,30 @@ class functions:
 
     def check_license(self):
         return
+    def man_match(self):
+        data = request.json
+        track_name = data['trackName']
+        artist_name = data['artistName']
+        matches = Spotiplex.PlexService().manual_track_match(track_name, artist_name)
+        # Convert matches to a suitable format for JSON response
+        matches_json = [{"title": match.title, "artist": match.grandparentTitle} for match in matches]
+        return matches_json
 
     def get_dashboard_data(self):
         self.service_checks()
+        if self.sync_started:
+            last_sync = str(self.sync_started)
+        else:
+            last_sync = "Unknown"
         dashboard_data = {
             "service_status": {
                 "spotify_connected": self.spotify,  # Example: Check if Spotify service is connected
                 "plex_connected": self.plex_conn,  # Example: Check if Plex service is connected
                 "lidarr_connected": self.lidarr_conn,  # Example: Check if Lidarr service is connected
             },
-            "last_sync": "2024-03-07 12:00:00",  # Placeholder for the last sync time
+            "last_sync": self.sync_started,  # Placeholder for the last sync time
             "sync_errors": [],  # Placeholder for any sync errors, if they exist
-            "sync_status": "Successful",  # Example sync status
+            "sync_status": self.sync_status,  # Example sync status
             "scheduled_sync": self.scheduled,  # Indicates if scheduled sync is enabled
             "next_sync_time": "2024-03-08 12:00:00",  # Placeholder for the next scheduled sync time
         }

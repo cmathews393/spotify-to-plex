@@ -5,7 +5,9 @@
 {% block content %}
 <script>
     var startTime = new Date();
+    {% include "js/script.js" %}
 </script>
+<script src="{{ url_for('static', filename='js/script.js')}}"> </script>
 
 <div class="container mt-4">
     <h1>Playlists</h1>
@@ -37,23 +39,35 @@
                 <div class="tracks">
                     <h3>Tracks</h3>
                     <ul>
-                        {% for track in tracks %}
-                        <li>
-                            <span class="track-name">{{ track[0] }}</span>
-                            <span class="by-text">by</span>
-                            <span class="artist-name">{{ track[1] }}</span>
-                        </li>
-                        {% endfor %}
+                        <ul>
+                            {% for track in tracks %}
+                            <li>
+                                <span class="track-name">{{ track[0] }}</span> {# track name #}
+                                <span class="by-text">by</span>
+                                <span class="artist-name">{{ track[1] }}</span> {# artist name #}
+                                {% if track[2] %}
+                                <span class="track-status">&#10003;</span> {# Checkmark symbol #}
+                                {% else %}
+                                <span class="track-status">&#10007;</span> {# "X" symbol #}
+                                <button onclick="manualMatch('{{ track[0] | tojson }}', '{{ track[1] | tojson }}', 'track{{ loop.index }}')">Manual Match</button>
+                                {% endif %}
+                            </li>
+                            {% endfor %}
+                        </ul>
+
                     </ul>
                 </div>
+
             </div>
+
+
         </div>
         {% else %}
 
         {% endif %}
     </div>
     {% endfor %}
-    
+
 </div>
 
 
