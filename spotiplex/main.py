@@ -2,13 +2,15 @@
 
 import typer
 from loguru import logger
-
 import spotiplex.modules.spotiplex.main as sp_module
 
-app = typer.Typer()
+logger.trace("Initializing logger...")
+logger.remove()
+logger.add("spotiplex.log", rotation="12:00")
 
-# Configure logger to write logs to a file
-logger.add("spotiplex.log", rotation="1 MB")
+
+logger.trace("Initializing app...")
+app = typer.Typer()
 
 
 @app.command()

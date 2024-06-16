@@ -98,7 +98,7 @@ class PlexClass:
                 items=iteration_tracks,
             )
             new_playlist.editSummary(
-                summary=f"Playlist autocreated with Spotiplex on {now}. Source is Spotify:{playlist_id}",
+                summary=f"Playlist autocreated with Spotiplex on {now.strftime('%m/%d/%Y')}. Source is Spotify, Playlist ID: {playlist_id}",
             )
 
             while tracks:
@@ -117,10 +117,10 @@ class PlexClass:
         existing_playlist: Playlist,
         playlist_id: str,
         tracks: list,
-    ) -> object:
+    ) -> Playlist:
         """Update an existing playlist in Plex."""
         now = datetime.datetime.now()
-        if self.replacement_policy:
+        if self.replacement_policy is not False and self.replacement_policy is not None:
             existing_playlist.delete()
             return self.create_playlist(
                 existing_playlist.title,
@@ -129,27 +129,33 @@ class PlexClass:
             )
         else:
             existing_playlist.editSummary(
-                summary=f"Playlist updated by Spotiplex on {now}. Source is Spotify:{playlist_id}",
+                summary=f"Playlist updated by Spotiplex on  {now.strftime('%m/%d/%Y')},. Source is Spotify, Playlist ID: {playlist_id}",
             )
-            existing_playlist.addItems(tracks)
+            if len(tracks) > 0:
+                existing_playlist.addItems(tracks)
             return existing_playlist
 
-    def find_playlist_by_name(self, playlist_name: str) -> object | None:
+    def find_playlist_by_name(self, playlist_name: str) -> Playlist | None:
         """Find a playlist by name in Plex."""
-        playlists = self.plex.playlists()
-        for playlist in playlists:
-            if playlist.title == playlist_name:
-                return playlist
-        return None
+        return next(
+            (
+                playlist
+                for playlist in self.plex.playlists()
+                if playlist_name in playlist.title
+            ),
+            None,
+        )
 
     def create_or_update_playlist(
         self,
         playlist_name: str,
         playlist_id: str,
         tracks: list,
-    ) -> object | None:
+    ) -> Playlist | None:
         """Create or update a playlist in Plex."""
         existing_playlist = self.find_playlist_by_name(playlist_name)
-        if existing_playlist:
-            return self.update_playlist(existing_playlist, tracks)
-        return self.create_playlist(playlist_name, playlist_id, tracks)
+        if existing_playlist is not None and tracks:
+            return self.update_playlist(existing_playlist, playlist_id, tracks)
+        if tracks:
+            return self.create_playlist(playlist_name, playlist_id, tracks)
+        return None

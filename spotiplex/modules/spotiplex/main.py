@@ -19,7 +19,6 @@ class Spotiplex:
         self.plex_service = PlexClass()
         self.user_list = self.get_user_list()
         self.default_user: str = self.plex_service.plex.myPlexAccount().username
-        print(self.default_user)
         self.worker_count: int = Config.WORKER_COUNT
         self.replace_existing = Config.PLEX_REPLACE
         if not playlist_id:
@@ -33,7 +32,7 @@ class Spotiplex:
         user_list: list[str] = plex_users.split(",") if plex_users else []
         if not user_list:
             user_list.append(self.default_user)
-        print(user_list)
+        logger.debug(f"Users to process: {user_list}")
         return user_list
 
     def get_sync_lists(self) -> None:
@@ -69,7 +68,6 @@ class Spotiplex:
     def process_playlist(self, playlist: str) -> None:
         try:
             playlist_id = self.extract_playlist_id(playlist)
-            logger.debug(playlist_id)
             playlist_name: str = self.spotify_service.get_playlist_name(playlist_id)
             if "Discover Weekly" in playlist_name:
                 current_date = datetime.now().strftime("%B %d")
