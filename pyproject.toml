@@ -3,16 +3,21 @@ name = "spotiplex"
 version = "0.1.0"
 description = ""
 authors = ["0xChloe <chloe@catastrophesoftware.com>"]
+license = "GPLv3"
 readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.10"
-spotipy = "^2.23.0"
-PlexAPI = "^4.15.7"
-requests = "^2.31.0"
+httpx = "^0.27.0"
+PlexAPI = "^4.15.13"
+spotipy = "^2.24.0"
 rtoml = "^0.10.0"
-schedule = "^1.2.1"
+typer = "^0.12.3"
+rich = "^13.7.1"
+loguru = "^0.7.2"
 
+[tool.poetry.scripts]
+spotiplex = "spotiplex.main:app"
 
 [build-system]
 requires = ["poetry-core"]
