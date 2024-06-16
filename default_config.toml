@@ -1,0 +1,19 @@
+[spotify]
+client_id = ""
+api_key = ""
+
+[plex]
+url = ""
+api_key = ""
+
+
+[lidarr]
+url = ""
+api_key = ""
+
+[spotiplex]
+lidarr_sync = "true"
+plex_users = "" #COMMA SEPARATED LIST, NO SPACES! user1,user2 NOT user1, user2
+worker_count = 16
+seconds_interval = 60 #Deprecated, should be replaced with crontab generator
+manual_playlists = "" #No spaces, comma separated. Might work with a mix of IDs and URLs but best to pick one format

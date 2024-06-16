@@ -1,7 +1,11 @@
 """Init for Typer app/main functions."""
 
+import sys
+
 import typer
 from loguru import logger
+
+import spotiplex.modules.confighandler.main as config_handler
 import spotiplex.modules.spotiplex.main as sp_module
 
 logger.trace("Initializing logger...")
@@ -18,6 +22,13 @@ def sync_lidarr_imports() -> None:
     """Syncs all playlists currently being pulled via Lidarr."""
     sp_instance = sp_module.Spotiplex(lidarr=True, playlist_id=None)
     sp_instance.run()
+
+
+@app.command()
+def generate_env() -> None:
+    """Generate env file from config to use with docker."""
+    logger.add(sys.stdout)
+    config_handler.config_to_env()
 
 
 @app.command()
