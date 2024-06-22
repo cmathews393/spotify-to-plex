@@ -1,0 +1,5 @@
+select = ["ALL"]
+target-version = "py310"
+
+[pydocstyle]
+convention = "google"

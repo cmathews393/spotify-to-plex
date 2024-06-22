@@ -1,10 +1,34 @@
 FROM python:latest
 
+# Set environment variables
 ENV SRC_DIR /usr/bin/spotiplex/
-COPY ./spotiplex ${SRC_DIR}/
+ENV POETRY_VERSION=1.7.1
+ENV PYTHONUNBUFFERED=1
+ENV CRON_SCHEDULE=@daily
+ENV DOCKER=True
+# Install Poetry
+RUN pip install "poetry==$POETRY_VERSION"
+
+# Copy the application source code
+COPY ./spotiplex ${SRC_DIR}/spotiplex
+COPY pyproject.toml poetry.lock ${SRC_DIR}/
+COPY README.md ${SRC_DIR}/
+# Set the working directory
 WORKDIR ${SRC_DIR}
 
-ENV PYTHONUNBUFFERED=1
+# Install dependencies with Poetry
+RUN poetry config virtualenvs.create false \
+    && poetry install --no-interaction --no-ansi
 
-RUN pip install -r requirements.txt
-CMD ["python", "main.py"]
+# Install supercronic
+RUN wget -O /usr/local/bin/supercronic https://github.com/aptible/supercronic/releases/download/v0.1.11/supercronic-linux-amd64 \
+    && chmod +x /usr/local/bin/supercronic
+
+
+# Copy entrypoint script
+COPY entrypoint.sh /usr/local/bin/entrypoint.sh
+RUN chmod +x /usr/local/bin/entrypoint.sh
+
+ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
+
+
