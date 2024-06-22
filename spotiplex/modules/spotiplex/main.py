@@ -1,4 +1,4 @@
-from concurrent.futures import ThreadPoolExecutor, as_completed
+from concurrent.futures import ThreadPoolExecutor, as_completed  # noqa: D100
 from datetime import datetime
 
 from loguru import logger
@@ -14,7 +14,12 @@ from spotiplex.modules.spotify.main import SpotifyClass
 class Spotiplex:
     """Class to hold Spotiplex functions."""
 
-    def __init__(self, lidarr: bool | None, playlist_id: str | None):
+    def __init__(
+        self: "Spotiplex",
+        lidarr: bool | None,
+        playlist_id: str | None,
+    ) -> None:
+        """Init for Spotiplex functions."""
         self.spotify_service = SpotifyClass()
         self.plex_service = PlexClass()
         self.user_list = self.get_user_list()
@@ -26,7 +31,7 @@ class Spotiplex:
             self.lidarr = lidarr
             self.get_sync_lists()
 
-    def get_user_list(self) -> list[str]:
+    def get_user_list(self: "Spotiplex") -> list[str]:
         """Gets user list and makes it into a usable list."""
         plex_users = Config.PLEX_USERS
         user_list: list[str] = plex_users.split(",") if plex_users else []
@@ -35,13 +40,14 @@ class Spotiplex:
         logger.debug(f"Users to process: {user_list}")
         return user_list
 
-    def get_sync_lists(self) -> None:
-        """Runs lidarr function to get lidarr lists or splits manual playlists to list."""
+    def get_sync_lists(self: "Spotiplex") -> None:
+        """Runs function to get lidarr lists or splits manual playlists to list."""
         if self.lidarr:
             self.sync_lists = self.lidarr_service.playlist_request()
-        self.sync_lists = Config.MANUAL_PLAYLISTS.split(",")
+        self.sync_lists: list[str] = Config.MANUAL_PLAYLISTS.split(",")
 
-    def process_for_user(self, user: str) -> None:
+    def process_for_user(self: "Spotiplex", user: str) -> None:
+        """Syncs playlists for a given user."""
         logger.debug(f"Processing for user {user}")
         self.plex_service.plex = (
             self.plex_service.plex
@@ -58,31 +64,41 @@ class Spotiplex:
             for future in as_completed(futures):
                 try:
                     future.result()
-                except Exception as e:
+                except Exception as e:  # noqa: PERF203 I wonder if there's a better way to do this? idk
                     logger.debug(f"Thread resulted in an error: {e}")
 
-    def run(self) -> None:
+    def run(self: "Spotiplex") -> None:
+        """Run function to loop through users."""
         for user in self.user_list:
             self.process_for_user(user)
 
-    def process_playlist(self, playlist: str) -> None:
+    def process_playlist(self: "Spotiplex", playlist: str) -> None:
+        """Process playlists, get data and create plex playlist."""
         try:
             playlist_id = self.extract_playlist_id(playlist)
-            playlist_name: str = self.spotify_service.get_playlist_name(playlist_id)
-            if "Discover Weekly" in playlist_name:
-                current_date = datetime.now().strftime("%B %d")
-                playlist_name = f"{playlist_name} {current_date}"
-            if "Daily Mix" in playlist_name:
-                current_date = datetime.now().strftime("%B %d")
-                playlist_name = f"{playlist_name} {current_date}"
-            spotify_tracks = self.spotify_service.get_playlist_tracks(playlist_id)
-            plex_tracks = self.plex_service.match_spotify_tracks_in_plex(spotify_tracks)
-            self.plex_service.create_or_update_playlist(
-                playlist_name,
+            playlist_name: str | None = self.spotify_service.get_playlist_name(
                 playlist_id,
-                plex_tracks,
             )
-            logger.debug(f"Processed playlist '{playlist_name}'.")
+
+            if playlist_name:
+                if "Discover Weekly" in playlist_name or "Daily Mix" in playlist_name:
+                    current_date = datetime.now().strftime("%B %d")
+                    playlist_name = f"{playlist_name} {current_date}"
+
+                spotify_tracks = self.spotify_service.get_playlist_tracks(playlist_id)
+                plex_tracks = self.plex_service.match_spotify_tracks_in_plex(
+                    spotify_tracks,
+                )
+                self.plex_service.create_or_update_playlist(
+                    playlist_name,
+                    playlist_id,
+                    plex_tracks,
+                )
+                logger.debug(f"Processed playlist '{playlist_name}'.")
+            else:
+                logger.debug(
+                    f"Playlist name could not be retrieved for playlist ID '{playlist_id}'.",
+                )
         except Exception as e:
             logger.debug(f"Error processing playlist '{playlist}': {e}")
 

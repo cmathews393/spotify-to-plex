@@ -23,7 +23,10 @@ class SpotifyClass:
         )
         return spotipy.Spotify(auth_manager=auth_manager)
 
-    def get_playlist_tracks(self, playlist_id: str) -> list[tuple[str, str]]:
+    def get_playlist_tracks(
+        self: "SpotifyClass",
+        playlist_id: str,
+    ) -> list[tuple[str, str]]:
         """Fetch tracks from a Spotify playlist."""
         tracks: list[tuple[str, str]] = []
         try:
@@ -40,13 +43,15 @@ class SpotifyClass:
             logger.debug(f"Error fetching tracks from Spotify: {e}")
         return tracks
 
-    def get_playlist_name(self, playlist_id: str) -> str | None:
+    def get_playlist_name(self: "SpotifyClass", playlist_id: str) -> str | None:
         """Fetch the name of a Spotify playlist."""
         try:
             return self.sp.playlist(playlist_id, fields=["name"])["name"]
         except Exception as e:
             logger.debug(
-                f"Error retrieving playlist name from Spotify for playlist {playlist_id}",
+                f"""
+                Error retrieving playlist name from Spotify for playlist {playlist_id}
+                """,
             )
             logger.debug(f"Error was {e}")
             return None

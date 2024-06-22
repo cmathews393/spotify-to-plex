@@ -1,4 +1,4 @@
-import os
+import os  # noqa: D100
 
 from spotiplex.modules.confighandler.main import read_config
 
@@ -20,8 +20,8 @@ class Config:
         PLEX_SERVER_URL = os.environ.get("PLEX_SERVER_URL")
         PLEX_REPLACE = os.environ.get("REPLACE")
 
-        LIDARR_API_KEY = os.environ.get("LIDARR_API_KEY")
-        LIDARR_API_URL = os.environ.get("LIDARR_API_URL")
+        LIDARR_API_KEY: str = os.environ.get("LIDARR_API_KEY", "Not Set")
+        LIDARR_API_URL: str = os.environ.get("LIDARR_API_URL", "Not Set")
 
         PLEX_USERS = os.environ.get("PLEX_USERS")
         WORKER_COUNT: int = int(os.environ.get("WORKER_COUNT", 10))
@@ -42,8 +42,8 @@ class Config:
         PLEX_SERVER_URL = plex_config.get("url")
         PLEX_REPLACE = plex_config.get("replace")
 
-        LIDARR_API_KEY = lidarr_config.get("api_key")
-        LIDARR_API_URL = lidarr_config.get("url")
+        LIDARR_API_KEY: str = lidarr_config.get("api_key", "Not Set")
+        LIDARR_API_URL: str = lidarr_config.get("url", "Not Set")
 
         PLEX_USERS = spotiplex_config.get("plex_users")
         WORKER_COUNT: int = int(spotiplex_config.get("worker_count", 10))

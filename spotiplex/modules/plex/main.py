@@ -1,7 +1,8 @@
-import datetime
+import datetime  # noqa: D100
 
 import httpx
 from loguru import logger
+from plexapi.audio import Track
 from plexapi.exceptions import BadRequest, NotFound
 from plexapi.playlist import Playlist  # Typing
 from plexapi.server import PlexServer
@@ -27,10 +28,10 @@ class PlexClass:
     def match_spotify_tracks_in_plex(
         self: "PlexClass",
         spotify_tracks: list[tuple[str, str]],
-    ) -> list:
+    ) -> list[Track]:
         """Match Spotify tracks in Plex library and provide a summary of the import."""
         logger.debug("Checking tracks in plex...")
-        matched_tracks = []
+        matched_tracks: list[Track] = []
         missing_tracks = []
         total_tracks = len(spotify_tracks)
         music_library = self.plex.library.section("Music")
@@ -62,15 +63,16 @@ class PlexClass:
                 )
                 plex_track = None
 
-            if plex_track:
-                matched_tracks.append(plex_track)
-            else:
+            if not plex_track:
                 logger.debug("Song not in Plex!")
                 logger.debug(
                     f"Found artists for '{artist_name}' ({len(artist_tracks_in_plex)})",
                 )
                 logger.debug(f"Attempted to match song '{track_name}', but could not!")
                 missing_tracks.append((track_name, artist_name))
+
+            else:
+                matched_tracks.append(plex_track)
 
         success_percentage = (
             (len(matched_tracks) / total_tracks) * 100 if total_tracks else 0
@@ -85,7 +87,7 @@ class PlexClass:
         self: "PlexClass",
         playlist_name: str,
         playlist_id: str,
-        tracks: list,
+        tracks: list[Track],
     ) -> Playlist | None:
         """Create a playlist in Plex with the given tracks."""
         now = datetime.datetime.now()
@@ -98,7 +100,10 @@ class PlexClass:
                 items=iteration_tracks,
             )
             new_playlist.editSummary(
-                summary=f"Playlist autocreated with Spotiplex on {now.strftime('%m/%d/%Y')}. Source is Spotify, Playlist ID: {playlist_id}",
+                summary=f"""
+                Playlist autocreated with Spotiplex on {now.strftime('%m/%d/%Y')}.
+                Source is Spotify, Playlist ID: {playlist_id}
+                """,
             )
 
             while tracks:
@@ -108,7 +113,7 @@ class PlexClass:
 
         except Exception as e:
             logger.debug(f"Error creating playlist {playlist_name}: {e}")
-            return None
+
         else:
             return new_playlist
 
@@ -117,7 +122,7 @@ class PlexClass:
         existing_playlist: Playlist,
         playlist_id: str,
         tracks: list,
-    ) -> Playlist:
+    ) -> Playlist | None:
         """Update an existing playlist in Plex."""
         now = datetime.datetime.now()
         if self.replacement_policy is not False and self.replacement_policy is not None:
@@ -127,15 +132,14 @@ class PlexClass:
                 playlist_id,
                 tracks,
             )
-        else:
-            existing_playlist.editSummary(
-                summary=f"Playlist updated by Spotiplex on  {now.strftime('%m/%d/%Y')},. Source is Spotify, Playlist ID: {playlist_id}",
-            )
-            if len(tracks) > 0:
-                existing_playlist.addItems(tracks)
-            return existing_playlist
+        existing_playlist.editSummary(
+            summary=f"Playlist updated by Spotiplex on  {now.strftime('%m/%d/%Y')},. Source is Spotify, Playlist ID: {playlist_id}",
+        )
+        if len(tracks) > 0:
+            existing_playlist.addItems(tracks)
+        return existing_playlist
 
-    def find_playlist_by_name(self, playlist_name: str) -> Playlist | None:
+    def find_playlist_by_name(self: "PlexClass", playlist_name: str) -> Playlist | None:
         """Find a playlist by name in Plex."""
         return next(
             (
@@ -147,7 +151,7 @@ class PlexClass:
         )
 
     def create_or_update_playlist(
-        self,
+        self: "PlexClass",
         playlist_name: str,
         playlist_id: str,
         tracks: list,

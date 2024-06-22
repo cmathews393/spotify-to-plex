@@ -28,7 +28,15 @@ RUN wget -O /usr/local/bin/supercronic https://github.com/aptible/supercronic/re
 COPY generate_cron.sh /usr/local/bin/generate_cron.sh
 RUN chmod +x /usr/local/bin/generate_cron.sh
 
+COPY entrypoint.sh ./
+RUN chmod +x entrypoint.sh
+
+
+
+
 # Set the command to generate the cron file and run supercronic
 CMD ["/bin/sh", "-c", "/usr/local/bin/generate_cron.sh && /usr/local/bin/supercronic /etc/supercronic-cron"]
 
+
+ENTRYPOINT ["./entrypoint.sh"]
 
