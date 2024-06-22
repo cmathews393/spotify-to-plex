@@ -55,3 +55,14 @@ class SpotifyClass:
             )
             logger.debug(f"Error was {e}")
             return None
+
+    def get_playlist_poster(self: "SpotifyClass", playlist_id: str) -> str | None:
+        """Tries to get cover art URL and returns None if not found."""
+        try:
+            playlist_data = self.sp.playlist(playlist_id, fields=["images"])
+        except Exception as e:
+            logger.error(f"Error retrieving cover art for playlist {playlist_id}: {e}")
+        if playlist_data and playlist_data["images"]:
+            cover_url: str = playlist_data["images"][0]["url"]
+            return cover_url
+        return None

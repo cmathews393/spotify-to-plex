@@ -86,13 +86,12 @@ class Spotiplex:
                     playlist_name = f"{playlist_name} {current_date}"
 
                 spotify_tracks = self.spotify_service.get_playlist_tracks(playlist_id)
+                cover_url = self.spotify_service.get_playlist_poster(playlist_id)
                 plex_tracks = self.plex_service.match_spotify_tracks_in_plex(
                     spotify_tracks,
                 )
                 self.plex_service.create_or_update_playlist(
-                    playlist_name,
-                    playlist_id,
-                    plex_tracks,
+                    playlist_name, playlist_id, plex_tracks, cover_url
                 )
                 logger.debug(f"Processed playlist '{playlist_name}'.")
             else:
