@@ -8,7 +8,7 @@
 - [Known Issues](#known-issues)
 - [Disclaimer](#disclaimer)
 
-**Note:** Temporarily change-frozen, building a new app that implements similar functionality for Radarr, Sonarr, etc, using Trakt and IMDB lists or *arr tags. Will be implemented with a web interface from the start, so is naturally taking a bit more time. [New app repo is here](https://github.com/cmathews393/plex-playlist-manager).
+**Note:** Temporarily change-frozen (except for all the times I've updated this instead of working on Playlist Manager), building a new app that implements similar functionality for Radarr, Sonarr, etc, using Trakt and IMDB lists or *arr tags. Will be implemented with a web interface from the start, so is naturally taking a bit more time. [New app repo is here](https://github.com/cmathews393/plex-playlist-manager).
 
 ## How To
 
@@ -25,7 +25,7 @@
    - Get Plex API key.
    - Get Spotify ID and API key.
    - Get Lidarr API key.
-3. Run with poetry (`cd spotiplex && poetry install`, `poetry run python main.py`)
+3. Run with poetry (`cd spotiplex && poetry install`, `poetry run spotiplex --help`)
 4. Follow CLI prompts
 
 ### Setup (Docker Version)
@@ -36,17 +36,15 @@ Note: Tested only on Linux, Docker version 24.0.5. Other environments are "unsup
 2. `touch spotiplex.env`
 3. Copy the contents of `default.env` from this repo to your new `.env` file, and edit as needed.
 4. `docker run --env-file spotiplex.env 0xchloe/spotiplex`
-5. Re-start the container to re-sync. Manual playlist syncing can be accomplished by including manual playlists in the .env file
+5. Container will run sync of Lidarr lists and manually specified lists on initial start, and every day at midnight if CRON_SCHEDULE is not set
 
 ## Dependencies
 
-Using [python-plexapi](https://github.com/pkkid/python-plexapi), [spotipy](https://github.com/spotipy-dev/spotipy), [rtoml](https://github.com/samuelcolvin/rtoml) , [schedule](https://github.com/dbader/schedule)
+Using [python-plexapi](https://github.com/pkkid/python-plexapi), [spotipy](https://github.com/spotipy-dev/spotipy), [rtoml](https://github.com/samuelcolvin/rtoml), typer, supercronic, httpx
 
 ## Upcoming Planned Features
 
 - Add to Plex-Playlist-Manager (See above)
-- Add fuzzy search to Plex
-- Troubleshoot Spotify API issues (see below)
 
 ## Known Issues
 
