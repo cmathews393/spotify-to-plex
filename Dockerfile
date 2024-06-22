@@ -4,7 +4,7 @@ FROM python:latest
 ENV SRC_DIR /usr/bin/spotiplex/
 ENV POETRY_VERSION=1.7.1
 ENV PYTHONUNBUFFERED=1
-ENV CRON_SCHEDULE=@hourly
+ENV CRON_SCHEDULE=@daily
 ENV DOCKER=True
 # Install Poetry
 RUN pip install "poetry==$POETRY_VERSION"
