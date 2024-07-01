@@ -43,8 +43,10 @@ class Spotiplex:
     def get_sync_lists(self: "Spotiplex") -> None:
         """Runs function to get lidarr lists or splits manual playlists to list."""
         if self.lidarr:
-            self.sync_lists = self.lidarr_service.playlist_request()
-        self.sync_lists: list[str] = Config.MANUAL_PLAYLISTS.split(",")
+            lidarr_lists: list[str] = self.lidarr_service.playlist_request()[0]
+            self.sync_lists: list[str] = lidarr_lists
+        else:
+            self.sync_lists: list[str] = Config.MANUAL_PLAYLISTS.split(",")
 
     def process_for_user(self: "Spotiplex", user: str) -> None:
         """Syncs playlists for a given user."""
@@ -91,7 +93,10 @@ class Spotiplex:
                     spotify_tracks,
                 )
                 self.plex_service.create_or_update_playlist(
-                    playlist_name, playlist_id, plex_tracks, cover_url
+                    playlist_name,
+                    playlist_id,
+                    plex_tracks,
+                    cover_url,
                 )
                 logger.debug(f"Processed playlist '{playlist_name}'.")
             else:

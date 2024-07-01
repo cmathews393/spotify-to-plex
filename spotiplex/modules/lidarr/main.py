@@ -29,7 +29,7 @@ class LidarrClass:
             logger.debug(f"Error during request: {e}")
             return None
 
-    def playlist_request(self: "LidarrClass") -> list[str]:
+    def playlist_request(self: "LidarrClass") -> list[list[str]]:
         """Request and process playlists from Lidarr."""
         endpoint: str = "/api/v1/importlist"
         raw_playlists: dict | None = self.lidarr_request(endpoint_path=endpoint)
