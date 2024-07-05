@@ -43,8 +43,11 @@ class Spotiplex:
     def get_sync_lists(self: "Spotiplex") -> None:
         """Runs function to get lidarr lists or splits manual playlists to list."""
         if self.lidarr:
-            lidarr_lists: list[str] = self.lidarr_service.playlist_request()[0]
-            self.sync_lists: list[str] = lidarr_lists
+            self.sync_lists: list[str] = [
+                playlist_id
+                for playlist in self.lidarr_service.playlist_request()
+                for playlist_id in playlist
+            ]
         else:
             self.sync_lists: list[str] = Config.MANUAL_PLAYLISTS.split(",")
 
