@@ -37,18 +37,21 @@ class PlexClass:
         music_library = self.plex.library.section("Music")
 
         for track_name, artist_name in spotify_tracks:
-            artist_tracks_in_plex = music_library.search(title=artist_name)
+            artist_tracks_in_plex = music_library.search(
+                title=artist_name.replace("'", ""),
+            )
             if not artist_tracks_in_plex:
                 logger.debug(f"No results found for artist: {artist_name}")
                 missing_tracks.append((track_name, artist_name))
                 continue
 
             try:
+                track_name_no_apostrophe = track_name.replace("'", "")
                 plex_track = next(
                     (
-                        track.track(title=track_name)
+                        track.track(title=track_name_no_apostrophe)
                         for track in artist_tracks_in_plex
-                        if track.track(title=track_name)
+                        if track.track(title=track_name_no_apostrophe)
                     ),
                     None,
                 )
