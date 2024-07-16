@@ -12,6 +12,8 @@ See this for reference: https://github.com/microsoft/pyright/issues/5265
 class Config:
     """Generic Config class to pull environment vars."""
 
+    VERSION = "3.0.1"
+
     if os.environ.get("DOCKER"):
         SPOTIFY_API_KEY = os.environ.get("SPOTIFY_API_KEY")
         SPOTIFY_API_ID = os.environ.get("SPOTIFY_API_ID")
