@@ -41,17 +41,20 @@ class PlexClass:
                 title=artist_name.replace("'", ""),
             )
             if not artist_tracks_in_plex:
-                logger.debug(f"No results found for artist: {artist_name}")
-                missing_tracks.append((track_name, artist_name))
-                continue
+                artist_tracks_in_plex = music_library.search(
+                    title=artist_name.replace("'", ""),
+                )
+                if not artist_tracks_in_plex:
+                    logger.debug(f"No results found for artist: {artist_name}")
+                    missing_tracks.append((track_name, artist_name))
+                    continue
 
             try:
-                track_name_no_apostrophe = track_name.replace("'", "")
                 plex_track = next(
                     (
-                        track.track(title=track_name_no_apostrophe)
+                        track.track(title=track_name)
                         for track in artist_tracks_in_plex
-                        if track.track(title=track_name_no_apostrophe)
+                        if track.track(title=track_name)
                     ),
                     None,
                 )
@@ -67,6 +70,26 @@ class PlexClass:
                 plex_track = None
 
             if not plex_track:
+                try:
+                    track_name_no_apostrophe = track_name.replace("'", "")
+                    plex_track = next(
+                        (
+                            track.track(title=track_name_no_apostrophe)
+                            for track in artist_tracks_in_plex
+                            if track.track(title=track_name_no_apostrophe)
+                        ),
+                        None,
+                    )
+                except NotFound:
+                    logger.debug(
+                        f"Track '{track_name}' by '{artist_name}' not found in Plex.",
+                    )
+                    plex_track = None
+                except (Exception, BadRequest) as plex_search_exception:
+                    logger.debug(
+                        f"Exception trying to search for artist '{artist_name}', track '{track_name}': {plex_search_exception}",
+                    )
+                    plex_track = None
                 logger.debug("Song not in Plex!")
                 logger.debug(
                     f"Found artists for '{artist_name}' ({len(artist_tracks_in_plex)})",
