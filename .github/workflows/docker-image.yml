@@ -1,4 +1,4 @@
-name: Docker Push On Commit
+name: Docker Build
 
 on:
   push:
