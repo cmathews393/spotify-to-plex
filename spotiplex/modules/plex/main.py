@@ -22,7 +22,7 @@ class PlexClass:
 
     def connect_plex(self: "PlexClass") -> PlexServer:
         """Simple function to initiate Plex Server connection."""
-        session = httpx.Client(verify=False)  # noqa: S501    Risk is acceptabl for me, feel free to require HTTPS, not a requirement of this app
+        session = httpx.Client(verify=False)  # noqa: S501    Risk is acceptable for me, feel free to require HTTPS, not a requirement of this app
         return PlexServer(self.plex_url, self.plex_key, session=session)
 
     def match_spotify_tracks_in_plex(
