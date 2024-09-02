@@ -1,4 +1,6 @@
-import os  # noqa: D100
+"""Config init for spotiplex."""
+
+import os
 
 from spotiplex.modules.confighandler.main import read_config
 
