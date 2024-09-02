@@ -44,61 +44,41 @@ class PlexClass:
                 artist_tracks_in_plex = music_library.search(
                     title=artist_name.replace("'", ""),
                 )
-                if not artist_tracks_in_plex:
-                    logger.debug(f"No results found for artist: {artist_name}")
-                    missing_tracks.append((track_name, artist_name))
-                    continue
+            logger.debug(f"No results found for artist: {artist_name}")
+            missing_tracks.append((track_name, artist_name))
+            continue
 
-            try:
-                plex_track = next(
-                    (
-                        track.track(title=track_name)
-                        for track in artist_tracks_in_plex
-                        if track.track(title=track_name)
-                    ),
-                    None,
-                )
-            except NotFound:
-                logger.debug(
-                    f"Track '{track_name}' by '{artist_name}' not found in Plex.",
-                )
-                plex_track = None
-            except (Exception, BadRequest) as plex_search_exception:
-                logger.debug(
-                    f"Exception trying to search for artist '{artist_name}', track '{track_name}': {plex_search_exception}",
-                )
-                plex_track = None
+        try:
+            track_name_no_apostrophe = track_name.replace("'", "")
+            plex_track = next(
+                (
+                    track.track(title=track_name_no_apostrophe)
+                    for track in artist_tracks_in_plex
+                    if track.track(title=track_name_no_apostrophe)
+                ),
+                None,
+            )
+        except NotFound:
+            logger.debug(
+                f"Track '{track_name}' by '{artist_name}' not found in Plex.",
+            )
+            plex_track = None
+        except (Exception, BadRequest) as plex_search_exception:
+            logger.debug(
+                f"Exception trying to search for artist '{artist_name}', track '{track_name}': {plex_search_exception}",
+            )
+            plex_track = None
 
-            if not plex_track:
-                try:
-                    track_name_no_apostrophe = track_name.replace("'", "")
-                    plex_track = next(
-                        (
-                            track.track(title=track_name_no_apostrophe)
-                            for track in artist_tracks_in_plex
-                            if track.track(title=track_name_no_apostrophe)
-                        ),
-                        None,
-                    )
-                except NotFound:
-                    logger.debug(
-                        f"Track '{track_name}' by '{artist_name}' not found in Plex.",
-                    )
-                    plex_track = None
-                except (Exception, BadRequest) as plex_search_exception:
-                    logger.debug(
-                        f"Exception trying to search for artist '{artist_name}', track '{track_name}': {plex_search_exception}",
-                    )
-                    plex_track = None
-                logger.debug("Song not in Plex!")
-                logger.debug(
-                    f"Found artists for '{artist_name}' ({len(artist_tracks_in_plex)})",
-                )
-                logger.debug(f"Attempted to match song '{track_name}', but could not!")
-                missing_tracks.append((track_name, artist_name))
+        if not plex_track:
+            logger.debug("Song not in Plex!")
+            logger.debug(
+                f"Found artists for '{artist_name}' ({len(artist_tracks_in_plex)})",
+            )
+            logger.debug(f"Attempted to match song '{track_name}', but could not!")
+            missing_tracks.append((track_name, artist_name))
 
-            else:
-                matched_tracks.append(plex_track)
+        else:
+            matched_tracks.append(plex_track)
 
         success_percentage = (
             (len(matched_tracks) / total_tracks) * 100 if total_tracks else 0
