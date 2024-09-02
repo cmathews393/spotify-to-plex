@@ -1,6 +1,7 @@
 """Init for Typer app/main functions."""
 
 import sys
+from time import perf_counter
 
 import typer
 from loguru import logger
@@ -34,8 +35,12 @@ def generate_env() -> None:
 @app.command()
 def sync_manual_lists() -> None:
     """Syncs all playlists specified in config file."""
+    start = perf_counter()
     sp_instance = sp_module.Spotiplex(lidarr=False, playlist_id=None)
     sp_instance.run()
+    stop = perf_counter()
+    print("Elapsed time:", stop, start)
+    print("Elapsed time during the whole program in seconds:", stop - start)
 
 
 # Uncomment and complete this function if needed in the future
