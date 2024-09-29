@@ -1,5 +1,5 @@
 # Spotify To Plex (Spotiplex)
-
+[![Docker Build](https://github.com/cmathews393/spotify-to-plex/actions/workflows/docker-image.yml/badge.svg)](https://github.com/cmathews393/spotify-to-plex/actions/workflows/docker-image.yml)
 ## Table of Contents
 
 - [How To](#how-to)
