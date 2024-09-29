@@ -11,7 +11,7 @@ import spotiplex.modules.spotiplex.main as sp_module
 logger.trace("Initializing logger...")
 logger.remove()
 logger.add("spotiplex.log", rotation="12:00")
-logger.debug("Spotiplex v124")
+logger.debug("Spotiplex v126")
 
 logger.trace("Initializing app...")
 app = typer.Typer()
