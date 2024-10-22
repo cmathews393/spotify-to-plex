@@ -8,7 +8,7 @@
 - [Known Issues](#known-issues)
 - [Disclaimer](#disclaimer)
 
-**Note:** Temporarily change-frozen (except for all the times I've updated this instead of working on Playlist Manager), building a new app that implements similar functionality for Radarr, Sonarr, etc, using Trakt and IMDB lists or *arr tags. Will be implemented with a web interface from the start, so is naturally taking a bit more time. [New app repo is here](https://github.com/cmathews393/plex-playlist-manager).
+**Note:** Undergoing rewrite to improve performance and fix various inherent bugs in current implementation. Check Bluesky for updates. Will release beta when it's in a testable state. 
 
 ## How To
 
