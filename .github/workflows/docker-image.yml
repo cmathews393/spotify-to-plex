@@ -31,4 +31,5 @@ jobs:
           push: true
           tags: |
             0xchloe/spotiplex:${{ github.ref_name == 'main' && 'latest' || github.ref_name }}
-
+          build-args: |
+            COMMIT_SHA=${{ github.sha }}
