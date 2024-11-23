@@ -13,6 +13,7 @@ class Config:
     """Generic Config class to pull environment vars."""
 
     if os.environ.get("DOCKER"):
+        SPOTIPLEX_VERSION = os.environ.get("COMMIT_SHA")
         SPOTIFY_API_KEY = os.environ.get("SPOTIFY_API_KEY")
         SPOTIFY_API_ID = os.environ.get("SPOTIFY_API_ID")
 
