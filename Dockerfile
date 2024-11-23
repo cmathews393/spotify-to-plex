@@ -23,7 +23,7 @@ COPY README.md ${SRC_DIR}/
 WORKDIR ${SRC_DIR}
 
 # Install dependencies with Poetry
-RUN poetry config virtualenvs.create false \
+RUN poetry config virtualenvs.create true \
     && poetry install --no-interaction --no-ansi
 
 # Install supercronic
