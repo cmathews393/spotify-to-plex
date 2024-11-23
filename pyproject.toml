@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "spotiplex"
-version = "0.1.0"
+version = "1.0.0"
 description = ""
 authors = ["0xChloe <chloe@catastrophesoftware.com>"]
 license = "GPLv3"

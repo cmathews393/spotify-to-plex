@@ -7,6 +7,7 @@ from loguru import logger
 
 import spotiplex.modules.confighandler.main as config_handler
 import spotiplex.modules.spotiplex.main as sp_module
+from spotiplex.config import Config
 
 logger.trace("Initializing logger...")
 logger.remove()
@@ -20,6 +21,7 @@ app = typer.Typer()
 @app.command()
 def sync_lidarr_imports() -> None:
     """Syncs all playlists currently being pulled via Lidarr."""
+    logger.debug("We are running on commit: ", Config.SPOTIPLEX_VERSION)
     sp_instance = sp_module.Spotiplex(lidarr=True, playlist_id=None)
     sp_instance.run()
 
@@ -34,6 +36,7 @@ def generate_env() -> None:
 @app.command()
 def sync_manual_lists() -> None:
     """Syncs all playlists specified in config file."""
+    logger.debug("We are running on commit: ", Config.SPOTIPLEX_VERSION)
     sp_instance = sp_module.Spotiplex(lidarr=False, playlist_id=None)
     sp_instance.run()
 
