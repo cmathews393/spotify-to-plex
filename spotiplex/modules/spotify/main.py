@@ -43,6 +43,19 @@ class SpotifyClass:
             logger.debug(f"Error fetching tracks from Spotify: {e}")
         return tracks
 
+    def get_playlist_author(self: "SpotifyClass", playlist_id: str) -> str | None:
+        """Fetch the name of a Spotify playlist."""
+        try:
+            return self.sp.playlist(playlist_id, fields=["owner"])["owner"]["display_name"]
+        except Exception as e:
+            logger.debug(
+                f"""
+                Error retrieving playlist owner's name from Spotify for playlist {playlist_id}
+                """,
+            )
+            logger.debug(f"Error was {e}")
+            return None
+
     def get_playlist_name(self: "SpotifyClass", playlist_id: str) -> str | None:
         """Fetch the name of a Spotify playlist."""
         try:
