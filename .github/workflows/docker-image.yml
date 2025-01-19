@@ -6,6 +6,7 @@ on:
       - main
       - dev
       - test
+  pull_request:
 
 jobs:
   build-and-push:
