@@ -13,6 +13,11 @@ ENV COMMIT_SHA=${COMMIT_SHA}
 
 # Install Poetry
 RUN pip install "poetry==$POETRY_VERSION"
+RUN apt-get update && \
+    apt-get install -y curl && \
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+
+ENV PATH="/root/.cargo/bin:${PATH}"
 
 # Copy the application source code
 COPY ./spotiplex ${SRC_DIR}/spotiplex
