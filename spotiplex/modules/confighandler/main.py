@@ -7,6 +7,17 @@ config_file = Path("config.toml")
 env_file = Path("spotiplex.env")
 
 
+class Config:
+    """Hold accesible config values for services."""
+
+    def __init__(self: "Config") -> None:
+        """Initialize all configs."""
+        self.spotiplex_config = read_config("spotiplex")
+        self.spotify_config = read_config("spotify")
+        self.plex_config = read_config("plex")
+        self.lidarr_config = read_config("lidarr")
+
+
 def ensure_config_exists() -> None:
     """Ensure the configuration file exists, and create it with default values if it doesn't."""
     if not Path.exists(config_file):
@@ -16,18 +27,25 @@ def ensure_config_exists() -> None:
             rtoml.dump({}, file)
 
 
-def read_config(service: str) -> dict[str, str]:
+def read_config(service: str) -> dict[str, str | int | list[str]]:
     """Read config for a given service."""
     logger.debug("Reading config...")
-    ensure_config_exists()  # Check if config file exists
-    with Path.open(config_file) as file:
+    ensure_config_exists()
+    with open(config_file) as file:
         config = rtoml.load(file)
-    return config.get(service, {})
+
+    service_config = config.get(service, {})
+    if service == "spotiplex":
+        # Ensure manual_playlists is always a list
+        playlists = service_config.get("manual_playlists", [])
+        if isinstance(playlists, str):
+            playlists = [p.strip() for p in playlists.splitlines() if p.strip()]
+        service_config["manual_playlists"] = playlists
+    return service_config
 
 
-def write_config(service: str, data):
-    """Write config for a given service (not in use)."""
-    print("writing config")
+def write_config(service: str, data: dict[str, str | int | list[str]]) -> None:
+    """Write config for a given service."""
     ensure_config_exists()  # Check if config file exists
     with open(config_file) as file:
         config = rtoml.load(file)

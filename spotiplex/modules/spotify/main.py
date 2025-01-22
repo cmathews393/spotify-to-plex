@@ -3,7 +3,7 @@ from loguru import logger
 from spotipy import Spotify
 from spotipy.oauth2 import SpotifyClientCredentials
 
-from spotiplex.config import Config
+from spotiplex.Home import config
 
 
 class SpotifyClass:
@@ -11,8 +11,8 @@ class SpotifyClass:
 
     def __init__(self: "SpotifyClass") -> None:
         """Init for Spotify class."""
-        self.spotify_id = Config.SPOTIFY_API_ID
-        self.spotify_key = Config.SPOTIFY_API_KEY
+        self.spotify_id = config.spotify_config["user_id"]
+        self.spotify_key = config.spotify_config["api_key"]
         self.sp = self.connect_spotify()
 
     def connect_spotify(self: "SpotifyClass") -> Spotify:

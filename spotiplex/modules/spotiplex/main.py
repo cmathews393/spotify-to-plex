@@ -3,8 +3,8 @@ from datetime import datetime
 
 from loguru import logger
 
-from spotiplex.config import (
-    Config,
+from spotiplex.Home import (
+    config,
 )
 from spotiplex.modules.lidarr.main import LidarrClass
 from spotiplex.modules.plex.main import PlexClass
@@ -24,8 +24,8 @@ class Spotiplex:
         self.plex_service = PlexClass()
         self.user_list = self.get_user_list()
         self.default_user: str = self.plex_service.plex.myPlexAccount().username
-        self.worker_count: int = Config.WORKER_COUNT
-        self.replace_existing = Config.PLEX_REPLACE
+        self.worker_count: int = config.spotiplex_config["worker_count"]
+        self.replace_existing = config.spotiplex_config["replace_existing"]
         if not playlist_id:
             self.lidarr_service = LidarrClass()
             self.lidarr = lidarr
@@ -33,7 +33,7 @@ class Spotiplex:
 
     def get_user_list(self: "Spotiplex") -> list[str]:
         """Gets user list and makes it into a usable list."""
-        plex_users = Config.PLEX_USERS
+        plex_users = config.plex_config["plex_users"]
         user_list: list[str] = plex_users.split(",") if plex_users else []
         if not user_list:
             user_list.append(self.default_user)
@@ -49,7 +49,9 @@ class Spotiplex:
                 for playlist_id in playlist
             ]
         else:
-            self.sync_lists: list[str] = Config.MANUAL_PLAYLISTS.split(",")
+            self.sync_lists: list[str] = config.plex_config["manual_playlists"].split(
+                ","
+            )
 
     def process_for_user(self: "Spotiplex", user: str) -> None:
         """Syncs playlists for a given user."""
