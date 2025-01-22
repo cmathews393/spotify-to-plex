@@ -30,6 +30,7 @@ class Config:
         MANUAL_PLAYLISTS: str = os.environ.get("MANUAL_PLAYLISTS", "None")
         LIDARR_SYNC = os.environ.get("LIDARR_SYNC", "false")
         FIRST_RUN = os.environ.get("FIRST_RUN", "False")
+        INCLUDE_PLAYLIST_AUTHOR = os.environ.get("INCLUDE_PLAYLIST_AUTHOR", "false")
     else:
         spotify_config = read_config("spotify")
         plex_config = read_config("plex")
@@ -52,3 +53,4 @@ class Config:
         MANUAL_PLAYLISTS: str = spotiplex_config.get("manual_playlists", "None")
         LIDARR_SYNC = spotiplex_config.get("lidarr_sync", "false")
         FIRST_RUN = spotiplex_config.get("first_run", "False")
+        INCLUDE_PLAYLIST_AUTHOR = spotiplex_config.get("include_playlist_author", "false")

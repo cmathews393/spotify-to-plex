@@ -17,3 +17,4 @@ plex_users = "" #COMMA SEPARATED LIST, NO SPACES! user1,user2 NOT user1, user2
 worker_count = 16
 seconds_interval = 60 #Deprecated, should be replaced with crontab generator
 manual_playlists = "" #No spaces, comma separated. Might work with a mix of IDs and URLs but best to pick one format
+include_playlist_author="false" # Add the author of the playlist to the title (e.g. My Favourites [John H.])

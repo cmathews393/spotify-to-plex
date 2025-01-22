@@ -26,6 +26,7 @@ class Spotiplex:
         self.default_user: str = self.plex_service.plex.myPlexAccount().username
         self.worker_count: int = Config.WORKER_COUNT
         self.replace_existing = Config.PLEX_REPLACE
+        self.include_playlist_author = Config.INCLUDE_PLAYLIST_AUTHOR
         if not playlist_id:
             self.lidarr_service = LidarrClass()
             self.lidarr = lidarr
@@ -84,6 +85,18 @@ class Spotiplex:
             playlist_name: str | None = self.spotify_service.get_playlist_name(
                 playlist_id,
             )
+            if (self.include_playlist_author):
+                playlist_author: str | None = self.spotify_service.get_playlist_author(
+                    playlist_id,
+                )
+
+                parts = playlist_author.split()
+                first_name = parts[0]
+                last_name = parts[-1]
+                last_initial = last_name[0]  # Get the first letter of the last name
+                short_author = f"{first_name} {last_initial}."
+
+                playlist_name = f"{playlist_name} [{short_author}]"
 
             if playlist_name:
                 if "Discover Weekly" in playlist_name or "Daily Mix" in playlist_name:
