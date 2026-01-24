@@ -1,5 +1,5 @@
-# Spotify To Plex (Spotiplex)
-## Currently, the Spotify API does NOT allow API access to Spotify generated playlists, including Daily Mix, Discover Weekly, or any other playlist owned + created by Spotify. Please see [here](https://developer.spotify.com/blog/2024-11-27-changes-to-the-web-api) for more details. There is nothing I can do about this functionality change, and it was abrupt and unexpected. Playlists created by users are still fully available for now. 
+# Spotify To Plex (Spotiplex) [ DEPRECATED ]
+## Due to the Spotify API changes, and no longer using Spotify or Plex for music, this app/script is no longer under development. [This](https://github.com/jjdenhertog/spotify-to-plex) might be a better option if you want something open source, but I have not used it so I can't confirm. Soundiiz is a paid app that can do the same across a multitude of services. Deezer will allow you to migrate from Spotify to Deezer directly in the web app. 
 [![Docker Build](https://github.com/cmathews393/spotify-to-plex/actions/workflows/docker-image.yml/badge.svg)](https://github.com/cmathews393/spotify-to-plex/actions/workflows/docker-image.yml)
 ## Table of Contents
 
